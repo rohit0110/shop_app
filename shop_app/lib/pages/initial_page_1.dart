@@ -1,0 +1,108 @@
+import 'package:flutter/material.dart';
+import 'package:shop_app/pages/initial_page_2.dart';
+
+class InitialPage1 extends StatelessWidget {
+  InitialPage1({Key? key}) : super(key: key);
+  final heading = RichText(
+      text: const TextSpan(
+          style: TextStyle(fontSize: 40, color: Colors.white),
+          children: [
+        TextSpan(text: 'Style'),
+        TextSpan(text: "ON", style: TextStyle(fontWeight: FontWeight.bold))
+      ]));
+
+  final subheading1 = RichText(
+      text: const TextSpan(
+          style: TextStyle(fontSize: 32, color: Colors.white),
+          children: [
+        TextSpan(text: 'Explore the new'),
+      ]));
+
+  final subheading2 = RichText(
+      text: const TextSpan(
+          style: TextStyle(fontSize: 32, color: Colors.white),
+          children: [
+        TextSpan(text: 'world of Clothing'),
+      ]));
+
+  Route _createRoute() {
+    return PageRouteBuilder(
+      pageBuilder: (context, animation, secondaryAnimation) => InitialPage2(),
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        const begin = Offset(1.0, 0.0);
+        const end = Offset.zero;
+        const curve = Curves.easeIn;
+
+        var tween =
+            Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+
+        return SlideTransition(
+          position: animation.drive(tween),
+          child: child,
+        );
+      },
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Container(
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        decoration: const BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage("assets/hat.jpg"), fit: BoxFit.fill)),
+        child: Column(children: [
+          Container(
+            margin: const EdgeInsets.fromLTRB(30, 200, 30, 200),
+            child: Column(
+              children: [
+                Row(
+                  children: [heading],
+                ),
+                const SizedBox(
+                  height: 40,
+                ),
+                Row(
+                  children: [subheading1],
+                ),
+                Row(
+                  children: [subheading2],
+                )
+              ],
+            ),
+          ),
+          Container(
+            margin: const EdgeInsets.symmetric(horizontal: 30),
+            child: ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).push(_createRoute());
+              },
+              child: Row(
+                children: const [
+                  Text(
+                    "Lets Explore",
+                    style: TextStyle(
+                        color: Colors.black, fontWeight: FontWeight.bold),
+                  ),
+                  Icon(
+                    Icons.arrow_forward,
+                    color: Colors.black,
+                  )
+                ],
+                mainAxisAlignment: MainAxisAlignment.center,
+              ),
+              style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(Colors.white),
+                  padding: MaterialStateProperty.all(
+                      const EdgeInsets.symmetric(horizontal: 60)),
+                  shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(18.0)))),
+            ),
+          )
+        ]),
+      ),
+    );
+  }
+}
