@@ -1,6 +1,7 @@
 import 'dart:ui';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:shop_app/pages/signin_page.dart';
 
 class SignUpPage extends StatelessWidget {
   SignUpPage({Key? key}) : super(key: key);
@@ -18,6 +19,24 @@ class SignUpPage extends StatelessWidget {
           children: [
         TextSpan(text: 'Create Account'),
       ]));
+
+  Route _createRoute(Widget page) {
+    return PageRouteBuilder(
+        pageBuilder: (context, animation, secondaryAnimation) => page,
+        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+          const begin = Offset(1.0, 0.0);
+          const end = Offset.zero;
+          const curve = Curves.easeIn;
+
+          var tween =
+              Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+
+          return SlideTransition(
+            position: animation.drive(tween),
+            child: child,
+          );
+        });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -127,6 +146,7 @@ class SignUpPage extends StatelessWidget {
                         const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                     child: ElevatedButton(
                       onPressed: () {
+                        //SHOW SIGNED IN?
                         Navigator.push(
                             context,
                             MaterialPageRoute(
@@ -208,9 +228,10 @@ class SignUpPage extends StatelessWidget {
                       text: TextSpan(
                           recognizer: TapGestureRecognizer()
                             ..onTap = (() {
-                              //Send to Log In Page
+                              Navigator.of(context)
+                                  .push(_createRoute(const SignInPage()));
                             }),
-                          style: TextStyle(color: Colors.white),
+                          style: const TextStyle(color: Colors.white),
                           text: "Already a account? Log in"))
                 ],
               ),

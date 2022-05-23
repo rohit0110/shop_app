@@ -1,9 +1,10 @@
 import 'dart:ui';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:shop_app/pages/signup_page.dart';
 
 class SignInPage extends StatefulWidget {
-  SignInPage({Key? key}) : super(key: key);
+  const SignInPage({Key? key}) : super(key: key);
 
   @override
   State<SignInPage> createState() => _SignInPageState();
@@ -26,6 +27,24 @@ class _SignInPageState extends State<SignInPage> {
       ]));
 
   bool isChecked = false;
+
+  Route _createRoute(Widget page) {
+    return PageRouteBuilder(
+        pageBuilder: (context, animation, secondaryAnimation) => page,
+        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+          const begin = Offset(1.0, 0.0);
+          const end = Offset.zero;
+          const curve = Curves.easeIn;
+
+          var tween =
+              Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+
+          return SlideTransition(
+            position: animation.drive(tween),
+            child: child,
+          );
+        });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -128,7 +147,7 @@ class _SignInPageState extends State<SignInPage> {
                                 ..onTap = (() {
                                   //Some Pop Up?
                                 }),
-                              style: TextStyle(color: Colors.white),
+                              style: const TextStyle(color: Colors.white),
                               text: "Forgot Password?"))
                     ],
                   ),
@@ -140,10 +159,11 @@ class _SignInPageState extends State<SignInPage> {
                         const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                     child: ElevatedButton(
                       onPressed: () {
+                        //GO TO MAIN PAGE
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => SignInPage()));
+                                builder: (context) => const SignInPage()));
                       },
                       child: Row(
                         children: const [
@@ -173,9 +193,10 @@ class _SignInPageState extends State<SignInPage> {
                       text: TextSpan(
                           recognizer: TapGestureRecognizer()
                             ..onTap = (() {
-                              //Send to Log In Page
+                              Navigator.of(context)
+                                  .push(_createRoute(SignUpPage()));
                             }),
-                          style: TextStyle(color: Colors.white),
+                          style: const TextStyle(color: Colors.white),
                           text: "Dont Have a account? Create Account"))
                 ],
               ),
