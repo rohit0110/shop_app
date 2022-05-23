@@ -1,7 +1,6 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:shop_app/pages/signup_page.dart';
 
 class InitialPage2 extends StatelessWidget {
   InitialPage2({Key? key}) : super(key: key);
@@ -34,6 +33,24 @@ class InitialPage2 extends StatelessWidget {
         TextSpan(text: '  on first purchase'),
       ]));
 
+  Route _createRoute() {
+    return PageRouteBuilder(
+        pageBuilder: (context, animation, secondaryAnimation) => SignUpPage(),
+        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+          const begin = Offset(1.0, 0.0);
+          const end = Offset.zero;
+          const curve = Curves.easeIn;
+
+          var tween =
+              Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+
+          return SlideTransition(
+            position: animation.drive(tween),
+            child: child,
+          );
+        });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,14 +59,39 @@ class InitialPage2 extends StatelessWidget {
         height: MediaQuery.of(context).size.height,
         decoration: const BoxDecoration(
             image: DecorationImage(
-                image: AssetImage("assets/stand.jpg"), fit: BoxFit.fill)),
+                image: AssetImage("assets/sit.jpg"), fit: BoxFit.fill)),
         child: BackdropFilter(
           filter: ImageFilter.blur(sigmaX: 2, sigmaY: 2),
           child: Column(children: [
             Container(
-              margin: const EdgeInsets.fromLTRB(30, 200, 30, 0),
+              margin: const EdgeInsets.fromLTRB(30, 20, 30, 0),
               child: Column(
                 children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      TextButton(
+                          onPressed: () {
+                            Navigator.of(context).push(_createRoute());
+                          },
+                          style: ButtonStyle(
+                              backgroundColor: MaterialStateProperty.all(
+                                  Colors.transparent)),
+                          child: Row(
+                            children: const [
+                              Text(
+                                "Skip",
+                                style: TextStyle(color: Colors.white),
+                              ),
+                              Icon(
+                                Icons.keyboard_arrow_right,
+                                color: Colors.white,
+                              )
+                            ],
+                          ))
+                    ],
+                  ),
+                  const SizedBox(height: 150),
                   Row(
                     children: [heading],
                   ),
@@ -71,10 +113,7 @@ class InitialPage2 extends StatelessWidget {
                         const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                     child: ElevatedButton(
                       onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => InitialPage2()));
+                        Navigator.of(context).push(_createRoute());
                       },
                       child: Row(
                         children: const [
@@ -102,10 +141,7 @@ class InitialPage2 extends StatelessWidget {
                         const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                     child: ElevatedButton(
                       onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => InitialPage2()));
+                        Navigator.of(context).push(_createRoute());
                       },
                       child: Row(
                         children: const [
@@ -141,10 +177,7 @@ class InitialPage2 extends StatelessWidget {
                         const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                     child: ElevatedButton(
                       onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => InitialPage2()));
+                        Navigator.of(context).push(_createRoute());
                       },
                       child: Row(
                         children: const [
@@ -169,7 +202,7 @@ class InitialPage2 extends StatelessWidget {
                       ),
                       style: ButtonStyle(
                           backgroundColor: MaterialStateProperty.all(
-                              Color.fromARGB(255, 9, 6, 169)),
+                              const Color.fromARGB(255, 9, 6, 169)),
                           padding: MaterialStateProperty.all(
                               const EdgeInsets.symmetric(horizontal: 60)),
                           shape: MaterialStateProperty.all(
