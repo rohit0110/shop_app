@@ -1,4 +1,5 @@
 import 'dart:ui';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class SignUpPage extends StatelessWidget {
@@ -21,6 +22,7 @@ class SignUpPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
@@ -75,36 +77,50 @@ class SignUpPage extends StatelessWidget {
                     children: [subheading1],
                   ),
                   const SizedBox(height: 20),
-                  Container(
-                    margin:
-                        const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => SignUpPage()));
-                      },
-                      child: Row(
-                        children: const [
-                          Text(
-                            "Sign In",
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ],
-                        mainAxisAlignment: MainAxisAlignment.center,
-                      ),
-                      style: ButtonStyle(
-                          backgroundColor:
-                              MaterialStateProperty.all(Colors.white),
-                          padding: MaterialStateProperty.all(
-                              const EdgeInsets.symmetric(horizontal: 60)),
-                          shape: MaterialStateProperty.all(
-                              RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(18.0)))),
+                  Column(children: const [
+                    TextField(
+                      textAlignVertical: TextAlignVertical.bottom,
+                      decoration: InputDecoration(
+                          enabledBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(color: Colors.white)),
+                          hintText: 'Name',
+                          hintStyle: TextStyle(color: Colors.white),
+                          prefixIcon: Icon(
+                            Icons.person,
+                            color: Colors.white,
+                          )),
                     ),
+                    TextField(
+                      textAlignVertical: TextAlignVertical.bottom,
+                      decoration: InputDecoration(
+                          enabledBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(color: Colors.white)),
+                          hintText: 'Enter Email or Phone',
+                          hintStyle: TextStyle(color: Colors.white),
+                          prefixIcon: Icon(
+                            Icons.mail,
+                            color: Colors.white,
+                          )),
+                    ),
+                    SizedBox(
+                      height: 30,
+                    ),
+                    TextField(
+                      textAlignVertical: TextAlignVertical.bottom,
+                      decoration: InputDecoration(
+                          enabledBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(color: Colors.white)),
+                          focusColor: Colors.white,
+                          hintText: 'Password',
+                          hintStyle: TextStyle(color: Colors.white),
+                          prefixIcon: Icon(
+                            Icons.password,
+                            color: Colors.white,
+                          )),
+                    ),
+                  ]),
+                  const SizedBox(
+                    height: 30,
                   ),
                   Container(
                     margin:
@@ -127,7 +143,7 @@ class SignUpPage extends StatelessWidget {
                             width: 5,
                           ),
                           Text(
-                            "Sign Up With Email",
+                            "Sign Up",
                             style: TextStyle(
                                 color: Colors.black,
                                 fontWeight: FontWeight.bold),
@@ -146,8 +162,7 @@ class SignUpPage extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    margin:
-                        const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                    margin: const EdgeInsets.symmetric(horizontal: 10),
                     child: ElevatedButton(
                       onPressed: () {
                         Navigator.push(
@@ -186,6 +201,17 @@ class SignUpPage extends StatelessWidget {
                                   borderRadius: BorderRadius.circular(18.0)))),
                     ),
                   ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  RichText(
+                      text: TextSpan(
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = (() {
+                              //Send to Log In Page
+                            }),
+                          style: TextStyle(color: Colors.white),
+                          text: "Already a account? Log in"))
                 ],
               ),
             ),

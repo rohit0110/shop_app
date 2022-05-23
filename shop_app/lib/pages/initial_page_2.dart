@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:shop_app/pages/signin_page.dart';
 import 'package:shop_app/pages/signup_page.dart';
 
 class InitialPage2 extends StatelessWidget {
@@ -33,9 +34,9 @@ class InitialPage2 extends StatelessWidget {
         TextSpan(text: '  on first purchase'),
       ]));
 
-  Route _createRoute() {
+  Route _createRoute(Widget page) {
     return PageRouteBuilder(
-        pageBuilder: (context, animation, secondaryAnimation) => SignUpPage(),
+        pageBuilder: (context, animation, secondaryAnimation) => page,
         transitionsBuilder: (context, animation, secondaryAnimation, child) {
           const begin = Offset(1.0, 0.0);
           const end = Offset.zero;
@@ -72,7 +73,8 @@ class InitialPage2 extends StatelessWidget {
                     children: [
                       TextButton(
                           onPressed: () {
-                            Navigator.of(context).push(_createRoute());
+                            Navigator.of(context)
+                                .push(_createRoute(SignUpPage()));
                           },
                           style: ButtonStyle(
                               backgroundColor: MaterialStateProperty.all(
@@ -113,7 +115,7 @@ class InitialPage2 extends StatelessWidget {
                         const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                     child: ElevatedButton(
                       onPressed: () {
-                        Navigator.of(context).push(_createRoute());
+                        Navigator.of(context).push(_createRoute(SignInPage()));
                       },
                       child: Row(
                         children: const [
@@ -141,7 +143,7 @@ class InitialPage2 extends StatelessWidget {
                         const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                     child: ElevatedButton(
                       onPressed: () {
-                        Navigator.of(context).push(_createRoute());
+                        Navigator.of(context).push(_createRoute(SignUpPage()));
                       },
                       child: Row(
                         children: const [
@@ -177,7 +179,7 @@ class InitialPage2 extends StatelessWidget {
                         const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                     child: ElevatedButton(
                       onPressed: () {
-                        Navigator.of(context).push(_createRoute());
+                        Navigator.of(context).push(_createRoute(SignUpPage()));
                       },
                       child: Row(
                         children: const [

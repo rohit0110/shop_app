@@ -1,2 +1,1 @@
-Skip button align center of text and icon
-remove spcae between text and icon
+align bottom of text in text field
