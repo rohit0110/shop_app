@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:shop_app/pages/components/dress_card.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -20,8 +21,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        child: SingleChildScrollView(
+    return SingleChildScrollView(
       child: Column(children: [
         Container(
           margin: const EdgeInsets.fromLTRB(30, 20, 30, 0),
@@ -96,22 +96,19 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             ]),
         Container(
             margin: const EdgeInsets.fromLTRB(30, 5, 30, 0),
-            height: 400,
+            padding: EdgeInsets.only(bottom: 50),
+            height: 410,
             child: StaggeredGridView.countBuilder(
+                shrinkWrap: true,
                 crossAxisCount: 2,
-                itemCount: 5,
+                itemCount: 10,
                 itemBuilder: (context, index) {
-                  return Container(
-                    color: Colors.amber,
-                    height: 100,
-                    margin:
-                        const EdgeInsets.symmetric(horizontal: 1, vertical: 1),
-                  ); //return a card
+                  return const DressCard();
                 },
                 staggeredTileBuilder: (index) {
                   return StaggeredTile.count(1, index.isEven ? 1.2 : 1.8);
                 }))
       ]),
-    ));
+    );
   }
 }
