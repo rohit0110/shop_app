@@ -65,7 +65,7 @@ class _CartPageState extends State<CartPage> {
               itemCount: 3,
               shrinkWrap: true,
               itemBuilder: (context, index) {
-                return CartItem();
+                return const CartItem();
               }),
 
           const SizedBox(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shop_app/pages/components/header.dart';
+import 'package:shop_app/pages/payment.dart';
 
 class ShippingPage extends StatefulWidget {
   const ShippingPage({Key? key}) : super(key: key);
@@ -17,16 +18,16 @@ class _ShippingPageState extends State<ShippingPage> {
           margin: const EdgeInsets.fromLTRB(30, 20, 30, 0),
           child: Column(
             children: [
-              const MainHeader(title: "Shpping Address", icons: true),
+              const MainHeader(title: "Shipping Address", icons: true),
               const SizedBox(
                 height: 20,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: const [
-                  Text("Shopping",
+                  Text("Shipping",
                       style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
                   Icon(
                     Icons.more_horiz,
                     size: 40,
@@ -35,7 +36,7 @@ class _ShippingPageState extends State<ShippingPage> {
                       style: TextStyle(
                           color: Colors.grey,
                           fontWeight: FontWeight.bold,
-                          fontSize: 18)),
+                          fontSize: 16)),
                   SizedBox(
                     width: 10,
                   ),
@@ -43,7 +44,7 @@ class _ShippingPageState extends State<ShippingPage> {
                       style: TextStyle(
                           color: Colors.grey,
                           fontWeight: FontWeight.bold,
-                          fontSize: 18))
+                          fontSize: 16))
                 ],
               ),
               const SizedBox(
@@ -164,7 +165,7 @@ class _ShippingPageState extends State<ShippingPage> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const ShippingPage()));
+                            builder: (context) => const PaymentPage()));
                   },
                   child: Row(
                     children: const [
