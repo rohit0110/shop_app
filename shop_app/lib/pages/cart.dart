@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:shop_app/pages/cart.dart';
-import 'package:shop_app/pages/components/carousel.dart';
+import 'package:shop_app/pages/components/cart_item.dart';
 
-class PreviewPage extends StatefulWidget {
-  const PreviewPage({Key? key}) : super(key: key);
+class CartPage extends StatefulWidget {
+  const CartPage({Key? key}) : super(key: key);
 
   @override
-  State<PreviewPage> createState() => _PreviewPageState();
+  State<CartPage> createState() => _CartPageState();
 }
 
-//Column carousel text row column text radio text radio button
-class _PreviewPageState extends State<PreviewPage> {
+class _CartPageState extends State<CartPage> {
   int selectedIndex = 0;
   void _onItemTapped(int index) {
     setState(() {
@@ -37,7 +35,7 @@ class _PreviewPageState extends State<PreviewPage> {
                         color: Colors.black,
                       )),
                   const Text(
-                    "Preview",
+                    "Cart",
                     style: TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.bold,
@@ -59,55 +57,104 @@ class _PreviewPageState extends State<PreviewPage> {
                   )
                 ],
               )),
-          const SizedBox(
-            height: 30,
-          ),
-          const Carousel(),
+
+          //LISTVIEW
+
+          ListView.builder(
+              itemCount: 3,
+              shrinkWrap: true,
+              itemBuilder: (context, index) {
+                return CartItem();
+              }),
+
           const SizedBox(
             height: 20,
           ),
-          const Text(
-            "Casual Puff Sleeve Solid Women Red Top",
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-          ),
-          const SizedBox(
-            height: 20,
-          ),
+
           Container(
-            padding: const EdgeInsets.symmetric(horizontal: 30),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            margin: const EdgeInsets.symmetric(horizontal: 30),
+            child: Column(
               children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
-                    Text(
-                      "Color",
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                    Text(
-                      "Clicakbale colors",
-                    )
-                  ],
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: const [
+                      Text(
+                        "Total Amount",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 16),
+                      ),
+                      Text(
+                        "\$90",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 18),
+                      )
+                    ],
+                  ),
                 ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
-                    Text("Select Size",
-                        style: TextStyle(fontWeight: FontWeight.bold)),
-                    Text("More buttons")
-                  ],
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: const [
+                      Text(
+                        "Discount",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 16),
+                      ),
+                      Text(
+                        "-\$15",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 18),
+                      )
+                    ],
+                  ),
+                ),
+                Container(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                  decoration: const BoxDecoration(
+                      color: Colors.white,
+                      boxShadow: [
+                        BoxShadow(
+                            color: Colors.grey,
+                            offset: Offset(0, 2),
+                            blurRadius: 2)
+                      ]),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: const [
+                      Text(
+                        "Amount Payable",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 16),
+                      ),
+                      Text(
+                        "\$75",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 18),
+                      )
+                    ],
+                  ),
                 )
               ],
             ),
+          ),
+          const SizedBox(
+            height: 60,
           ),
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 30),
             child: ElevatedButton(
               onPressed: () {
                 //GO TO MAIN PAGE
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const CartPage()));
+                // Navigator.push(
+                //     context,
+                //     MaterialPageRoute(
+                //         builder: (context) => const BasePage()));
               },
               child: Row(
                 children: const [
@@ -116,7 +163,7 @@ class _PreviewPageState extends State<PreviewPage> {
                     color: Colors.white,
                   ),
                   Text(
-                    "Add Cart",
+                    "Checkout Securely",
                     style: TextStyle(
                         color: Colors.white, fontWeight: FontWeight.bold),
                   ),
