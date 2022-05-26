@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shop_app/pages/components/header.dart';
 
 class NotifPage extends StatefulWidget {
   const NotifPage({Key? key}) : super(key: key);
@@ -14,20 +15,8 @@ class _NotifPageState extends State<NotifPage> {
     return Scaffold(
         body: Container(
             margin: const EdgeInsets.fromLTRB(30, 20, 30, 0),
-            child: Column(children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  IconButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      icon: const Icon(
-                        Icons.arrow_back_ios,
-                        color: Colors.black,
-                      )),
-                ],
-              ),
+            child: Column(children: const [
+              MainHeader(title: "Notifications", icons: false)
             ])));
   }
 }

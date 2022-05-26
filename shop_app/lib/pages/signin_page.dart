@@ -2,7 +2,6 @@ import 'dart:ui';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:shop_app/pages/base_page.dart';
-import 'package:shop_app/pages/homepage.dart';
 import 'package:shop_app/pages/signup_page.dart';
 
 class SignInPage extends StatefulWidget {

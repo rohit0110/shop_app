@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shop_app/pages/components/cart_item.dart';
+import 'package:shop_app/pages/shipping.dart';
 
 class CartPage extends StatefulWidget {
   const CartPage({Key? key}) : super(key: key);
@@ -150,11 +151,10 @@ class _CartPageState extends State<CartPage> {
             padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 30),
             child: ElevatedButton(
               onPressed: () {
-                //GO TO MAIN PAGE
-                // Navigator.push(
-                //     context,
-                //     MaterialPageRoute(
-                //         builder: (context) => const BasePage()));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const ShippingPage()));
               },
               child: Row(
                 children: const [

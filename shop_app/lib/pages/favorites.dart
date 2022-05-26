@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:shop_app/pages/components/fav_item.dart';
+import 'package:shop_app/pages/components/header.dart';
 
 class FavoritesPage extends StatefulWidget {
   const FavoritesPage({Key? key}) : super(key: key);
@@ -15,40 +17,15 @@ class _FavoritesPageState extends State<FavoritesPage> {
         body: Container(
             margin: const EdgeInsets.fromLTRB(30, 20, 30, 0),
             child: Column(children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  IconButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      icon: const Icon(
-                        Icons.arrow_back_ios,
-                        color: Colors.black,
-                      )),
-                  const Text(
-                    "Favourites",
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: const [
-                      Icon(Icons.search),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Icon(Icons.shopping_bag),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Icon(Icons.person)
-                    ],
-                  )
-                ],
-              ),
+              const MainHeader(title: "Favourites", icons: true),
+
+              //LISTVIEW
+              ListView.builder(
+                  itemCount: 3,
+                  shrinkWrap: true,
+                  itemBuilder: (context, index) {
+                    return const FavItem();
+                  })
             ])));
   }
 }

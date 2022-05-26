@@ -44,7 +44,6 @@ class _BasePageState extends State<BasePage> {
           NotifPage(),
           FavoritesPage(),
           ProfilePage(),
-          PreviewPage()
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
