@@ -1,1 +1,5 @@
-align bottom of text in text field
+add shadow to keyboard buttons
+buttons for color and size selection
+add animation betwee pages
+stack the red dot on shopping bag
+buttons size on different pages

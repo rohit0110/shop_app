@@ -1,6 +1,7 @@
 import 'dart:ui';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:shop_app/pages/otp_page.dart';
 import 'package:shop_app/pages/signin_page.dart';
 
 class SignUpPage extends StatelessWidget {
@@ -150,7 +151,7 @@ class SignUpPage extends StatelessWidget {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => SignUpPage()));
+                                builder: (context) => const OTPage()));
                       },
                       child: Row(
                         children: const [
@@ -188,7 +189,7 @@ class SignUpPage extends StatelessWidget {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => SignUpPage()));
+                                builder: (context) => const OTPage()));
                       },
                       child: Row(
                         children: const [

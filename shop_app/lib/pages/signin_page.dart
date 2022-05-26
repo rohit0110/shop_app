@@ -2,6 +2,7 @@ import 'dart:ui';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:shop_app/pages/base_page.dart';
+import 'package:shop_app/pages/forgot_password.dart';
 import 'package:shop_app/pages/signup_page.dart';
 
 class SignInPage extends StatefulWidget {
@@ -146,7 +147,8 @@ class _SignInPageState extends State<SignInPage> {
                           text: TextSpan(
                               recognizer: TapGestureRecognizer()
                                 ..onTap = (() {
-                                  //Some Pop Up?
+                                  Navigator.of(context)
+                                      .push(_createRoute(const ForgotPWPage()));
                                 }),
                               style: const TextStyle(color: Colors.white),
                               text: "Forgot Password?"))
