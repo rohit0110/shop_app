@@ -1,5 +1,0 @@
-
-buttons for color and size selection
-stack the red dot on shopping bag
-new header for outside screens
-
