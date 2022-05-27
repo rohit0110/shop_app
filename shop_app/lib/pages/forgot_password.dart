@@ -92,10 +92,17 @@ class _OTPageState extends State<ForgotPWPage> {
                       showCursor: true,
                       margin: const EdgeInsets.symmetric(horizontal: 10),
                     ),
-                    const IntButton(
-                      title: "Send",
-                      route: HomePage(),
-                    ),
+                    const Padding(
+                      padding: EdgeInsets.only(top: 30),
+                      child: IntButton(
+                        title: "Send",
+                        route: HomePage(),
+                        prefix: Icons.lock,
+                        postfix: Icons.abc,
+                        hasPre: false,
+                        hasPost: false,
+                      ),
+                    )
                   ]),
                 ),
               ),

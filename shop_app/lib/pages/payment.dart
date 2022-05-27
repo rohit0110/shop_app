@@ -52,21 +52,31 @@ class _PaymentPageState extends State<PaymentPage> {
               const IntButton(
                 title: "Cash On Delivery",
                 route: ConfirmPage(),
+                prefix: Icons.lock,
+                postfix: Icons.abc,
+                hasPre: false,
+                hasPost: false,
               ),
               const Padding(
-                padding: EdgeInsets.only(top: 10),
-                child: IntButton(
-                  title: "Pay Through Upi",
-                  route: ConfirmPage(),
-                ),
-              ),
+                  padding: EdgeInsets.only(top: 10),
+                  child: IntButton(
+                    title: "Pay Through Delivery",
+                    route: ConfirmPage(),
+                    prefix: Icons.lock,
+                    postfix: Icons.abc,
+                    hasPre: false,
+                    hasPost: false,
+                  )),
               const Padding(
-                padding: EdgeInsets.only(top: 60),
-                child: IntButton(
-                  title: "Pay Now \$75",
-                  route: ConfirmPage(),
-                ),
-              ),
+                  padding: EdgeInsets.only(top: 60),
+                  child: IntButton(
+                    title: "Pay Now \$75",
+                    route: ConfirmPage(),
+                    prefix: Icons.lock,
+                    postfix: Icons.abc,
+                    hasPre: true,
+                    hasPost: false,
+                  )),
             ],
           ),
         ),

@@ -38,7 +38,14 @@ class _ProfilePageState extends State<ProfilePage> {
           ),
           Padding(
             padding: EdgeInsets.symmetric(vertical: 30),
-            child: IntButton(title: "Log Out", route: SignInPage()),
+            child: IntButton(
+              title: "Log Out",
+              route: SignInPage(),
+              prefix: Icons.logout,
+              postfix: Icons.abc,
+              hasPre: true,
+              hasPost: false,
+            ),
           ),
         ]));
   }

@@ -1,10 +1,19 @@
 import 'package:flutter/material.dart';
 
 class IntButton extends StatefulWidget {
-  const IntButton({Key? key, required this.title, required this.route})
+  const IntButton(
+      {Key? key,
+      required this.title,
+      required this.route,
+      required this.prefix,
+      required this.postfix,
+      required this.hasPre,
+      required this.hasPost})
       : super(key: key);
   final String title;
   final Widget route;
+  final IconData prefix, postfix;
+  final bool hasPre, hasPost;
   @override
   State<IntButton> createState() => _IntButtonState();
 }
@@ -38,11 +47,13 @@ class _IntButtonState extends State<IntButton> {
         },
         child: Row(
           children: [
+            if (widget.hasPre) Icon(widget.prefix),
             Text(
               widget.title,
               style: const TextStyle(
                   color: Colors.white, fontWeight: FontWeight.bold),
             ),
+            if (widget.hasPost) Icon(widget.postfix),
           ],
           mainAxisAlignment: MainAxisAlignment.center,
         ),

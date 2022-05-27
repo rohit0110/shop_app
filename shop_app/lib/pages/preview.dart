@@ -4,6 +4,8 @@ import 'package:shop_app/pages/components/bot_nav.dart';
 import 'package:shop_app/pages/components/carousel.dart';
 import 'package:shop_app/pages/components/header.dart';
 import 'package:shop_app/pages/components/int_button.dart';
+import 'package:shop_app/pages/components/select_color.dart';
+import 'package:shop_app/pages/components/select_size.dart';
 
 class PreviewPage extends StatefulWidget {
   const PreviewPage({Key? key}) : super(key: key);
@@ -51,25 +53,33 @@ class _PreviewPageState extends State<PreviewPage> {
                         "Color",
                         style: TextStyle(fontWeight: FontWeight.bold),
                       ),
-                      Text(
-                        "Clicakbale colors",
-                      )
+                      SelectColor()
                     ],
                   ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
-                      Text("Select Size",
-                          style: TextStyle(fontWeight: FontWeight.bold)),
-                      Text("More buttons")
-                    ],
+                  Padding(
+                    padding: const EdgeInsets.only(right: 40),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: const [
+                        Text("Select Size",
+                            style: TextStyle(fontWeight: FontWeight.bold)),
+                        SelectSize()
+                      ],
+                    ),
                   )
                 ],
               ),
             ),
             const Padding(
               padding: EdgeInsets.all(20.0),
-              child: IntButton(title: "Add Cart", route: CartPage()),
+              child: IntButton(
+                title: "Add Cart",
+                route: CartPage(),
+                prefix: Icons.shopping_bag,
+                postfix: Icons.abc,
+                hasPre: true,
+                hasPost: false,
+              ),
             )
           ],
         ),

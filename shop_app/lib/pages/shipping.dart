@@ -50,9 +50,16 @@ class _ShippingPageState extends State<ShippingPage> {
                 )),
               ),
               const SizedBox(
-                height: 20,
+                height: 40,
               ),
-              const IntButton(title: "Continue to pay", route: PaymentPage())
+              const IntButton(
+                title: "Continue to pay",
+                route: PaymentPage(),
+                prefix: Icons.lock,
+                postfix: Icons.abc,
+                hasPre: false,
+                hasPost: false,
+              )
             ],
           ),
         ),

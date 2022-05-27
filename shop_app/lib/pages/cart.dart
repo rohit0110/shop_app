@@ -48,7 +48,14 @@ class _CartPageState extends State<CartPage> {
               height: 60,
             ),
             //CHANGE BUTTON
-            const IntButton(title: "Checkout Securely", route: ShippingPage())
+            const IntButton(
+              title: "Checkout Securely",
+              route: ShippingPage(),
+              prefix: Icons.lock,
+              postfix: Icons.abc,
+              hasPre: true,
+              hasPost: false,
+            )
           ],
         ),
         bottomNavigationBar: const BotNavBar());
