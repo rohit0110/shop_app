@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:shop_app/pages/components/ext_button.dart';
 import 'package:shop_app/pages/signin_page.dart';
 import 'package:shop_app/pages/signup_page.dart';
 
@@ -68,6 +69,7 @@ class InitialPage2 extends StatelessWidget {
               margin: const EdgeInsets.fromLTRB(30, 20, 30, 0),
               child: Column(
                 children: [
+                  //HEADER
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
@@ -93,125 +95,43 @@ class InitialPage2 extends StatelessWidget {
                           ))
                     ],
                   ),
+
                   const SizedBox(height: 150),
                   Row(
-                    children: [heading],
-                  ),
-                  const SizedBox(
-                    height: 5,
-                  ),
-                  Row(
-                    children: [subheading1],
-                  ),
-                  Row(
-                    children: [subheading2],
-                  ),
-                  Row(
-                    children: [subheading3],
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          heading,
+                          subheading1,
+                          subheading2,
+                          subheading3
+                        ],
+                      )
+                    ],
                   ),
                   const SizedBox(height: 10),
-                  Container(
-                    margin:
-                        const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.of(context).push(_createRoute(SignInPage()));
-                      },
-                      child: Row(
-                        children: const [
-                          Text(
-                            "Sign In",
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ],
-                        mainAxisAlignment: MainAxisAlignment.center,
-                      ),
-                      style: ButtonStyle(
-                          backgroundColor:
-                              MaterialStateProperty.all(Colors.white),
-                          padding: MaterialStateProperty.all(
-                              const EdgeInsets.symmetric(horizontal: 60)),
-                          shape: MaterialStateProperty.all(
-                              RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(18.0)))),
-                    ),
-                  ),
-                  Container(
-                    margin:
-                        const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.of(context).push(_createRoute(SignUpPage()));
-                      },
-                      child: Row(
-                        children: const [
-                          Icon(
-                            Icons.mail,
-                            color: Colors.black,
-                            size: 16,
-                          ),
-                          SizedBox(
-                            width: 5,
-                          ),
-                          Text(
-                            "Sign Up With Email",
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ],
-                        mainAxisAlignment: MainAxisAlignment.center,
-                      ),
-                      style: ButtonStyle(
-                          backgroundColor:
-                              MaterialStateProperty.all(Colors.white),
-                          padding: MaterialStateProperty.all(
-                              const EdgeInsets.symmetric(horizontal: 60)),
-                          shape: MaterialStateProperty.all(
-                              RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(18.0)))),
-                    ),
-                  ),
-                  Container(
-                    margin:
-                        const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.of(context).push(_createRoute(SignUpPage()));
-                      },
-                      child: Row(
-                        children: const [
-                          Text(
-                            "f",
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold),
-                          ),
-                          SizedBox(
-                            width: 5,
-                          ),
-                          Text(
-                            "Log In with facebook",
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ],
-                        mainAxisAlignment: MainAxisAlignment.center,
-                      ),
-                      style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all(
-                              const Color.fromARGB(255, 9, 6, 169)),
-                          padding: MaterialStateProperty.all(
-                              const EdgeInsets.symmetric(horizontal: 60)),
-                          shape: MaterialStateProperty.all(
-                              RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(18.0)))),
-                    ),
-                  ),
+                  const ExtButton(
+                      route: SignInPage(),
+                      title: "Sign In",
+                      titleColor: Colors.black,
+                      bgColor: Colors.white,
+                      hasIcon: false,
+                      whichIcon: Icons.abc),
+                  ExtButton(
+                      route: SignUpPage(),
+                      title: "Sign Up With Email",
+                      titleColor: Colors.black,
+                      bgColor: Colors.white,
+                      hasIcon: true,
+                      whichIcon: Icons.mail),
+                  const ExtButton(
+                      route: SignInPage(),
+                      title: "f  Log In with facebook",
+                      titleColor: Colors.white,
+                      bgColor: Color.fromARGB(255, 9, 6, 169),
+                      hasIcon: false,
+                      whichIcon: Icons.abc),
                 ],
               ),
             ),

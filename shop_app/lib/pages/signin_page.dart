@@ -2,6 +2,7 @@ import 'dart:ui';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:shop_app/pages/base_page.dart';
+import 'package:shop_app/pages/components/ext_button.dart';
 import 'package:shop_app/pages/forgot_password.dart';
 import 'package:shop_app/pages/signup_page.dart';
 
@@ -89,106 +90,18 @@ class _SignInPageState extends State<SignInPage> {
                     children: [subheading1],
                   ),
                   const SizedBox(height: 20),
-                  Column(children: const [
-                    TextField(
-                      textAlignVertical: TextAlignVertical.bottom,
-                      decoration: InputDecoration(
-                          enabledBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(color: Colors.white)),
-                          hintText: 'Email',
-                          hintStyle: TextStyle(color: Colors.white),
-                          prefixIcon: Icon(
-                            Icons.mail,
-                            color: Colors.white,
-                          )),
-                    ),
-                    SizedBox(
-                      height: 30,
-                    ),
-                    TextField(
-                      textAlignVertical: TextAlignVertical.bottom,
-                      decoration: InputDecoration(
-                          enabledBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(color: Colors.white)),
-                          focusColor: Colors.white,
-                          hintText: 'Password',
-                          hintStyle: TextStyle(color: Colors.white),
-                          prefixIcon: Icon(
-                            Icons.password,
-                            color: Colors.white,
-                          )),
-                    ),
-                  ]),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Row(
-                        children: [
-                          Theme(
-                            data: ThemeData(
-                                primaryColor: Colors.white,
-                                unselectedWidgetColor: Colors.white),
-                            child: Checkbox(
-                                value: isChecked,
-                                fillColor:
-                                    MaterialStateProperty.all(Colors.white),
-                                checkColor: Colors.blue,
-                                onChanged: (bool? value) {
-                                  setState(() {
-                                    isChecked = value!;
-                                  });
-                                }),
-                          ),
-                          const Text("Remember Me",
-                              style: TextStyle(color: Colors.white))
-                        ],
-                      ),
-                      RichText(
-                          text: TextSpan(
-                              recognizer: TapGestureRecognizer()
-                                ..onTap = (() {
-                                  Navigator.of(context)
-                                      .push(_createRoute(const ForgotPWPage()));
-                                }),
-                              style: const TextStyle(color: Colors.white),
-                              text: "Forgot Password?"))
-                    ],
-                  ),
+                  formField(),
                   const SizedBox(
                     height: 30,
                   ),
-                  Container(
-                    margin:
-                        const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                    child: ElevatedButton(
-                      onPressed: () {
-                        //GO TO MAIN PAGE
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const BasePage()));
-                      },
-                      child: Row(
-                        children: const [
-                          Text(
-                            "Sign In",
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ],
-                        mainAxisAlignment: MainAxisAlignment.center,
-                      ),
-                      style: ButtonStyle(
-                          backgroundColor:
-                              MaterialStateProperty.all(Colors.white),
-                          padding: MaterialStateProperty.all(
-                              const EdgeInsets.symmetric(horizontal: 60)),
-                          shape: MaterialStateProperty.all(
-                              RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(18.0)))),
-                    ),
-                  ),
+                  miscFeatures(),
+                  const ExtButton(
+                      route: BasePage(),
+                      title: "Sign In",
+                      titleColor: Colors.black,
+                      bgColor: Colors.white,
+                      hasIcon: false,
+                      whichIcon: Icons.abc),
                   const SizedBox(
                     height: 20,
                   ),
@@ -207,6 +120,75 @@ class _SignInPageState extends State<SignInPage> {
           ]),
         ),
       ),
+    );
+  }
+
+  Widget formField() {
+    return Column(children: const [
+      TextField(
+        textAlignVertical: TextAlignVertical.bottom,
+        decoration: InputDecoration(
+            enabledBorder: UnderlineInputBorder(
+                borderSide: BorderSide(color: Colors.white)),
+            hintText: 'Email',
+            hintStyle: TextStyle(color: Colors.white),
+            prefixIcon: Icon(
+              Icons.mail,
+              color: Colors.white,
+            )),
+      ),
+      SizedBox(
+        height: 30,
+      ),
+      TextField(
+        textAlignVertical: TextAlignVertical.bottom,
+        decoration: InputDecoration(
+            enabledBorder: UnderlineInputBorder(
+                borderSide: BorderSide(color: Colors.white)),
+            focusColor: Colors.white,
+            hintText: 'Password',
+            hintStyle: TextStyle(color: Colors.white),
+            prefixIcon: Icon(
+              Icons.password,
+              color: Colors.white,
+            )),
+      ),
+    ]);
+  }
+
+  Widget miscFeatures() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Row(
+          children: [
+            Theme(
+              data: ThemeData(
+                  primaryColor: Colors.white,
+                  unselectedWidgetColor: Colors.white),
+              child: Checkbox(
+                  value: isChecked,
+                  fillColor: MaterialStateProperty.all(Colors.white),
+                  checkColor: Colors.blue,
+                  onChanged: (bool? value) {
+                    setState(() {
+                      isChecked = value!;
+                    });
+                  }),
+            ),
+            const Text("Remember Me", style: TextStyle(color: Colors.white))
+          ],
+        ),
+        RichText(
+            text: TextSpan(
+                recognizer: TapGestureRecognizer()
+                  ..onTap = (() {
+                    Navigator.of(context)
+                        .push(_createRoute(const ForgotPWPage()));
+                  }),
+                style: const TextStyle(color: Colors.white),
+                text: "Forgot Password?"))
+      ],
     );
   }
 }

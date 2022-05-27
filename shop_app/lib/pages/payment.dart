@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_credit_card/credit_card_brand.dart';
 import 'package:flutter_credit_card/credit_card_widget.dart';
 import 'package:shop_app/pages/components/header.dart';
+import 'package:shop_app/pages/components/int_button.dart';
 import 'package:shop_app/pages/confirm.dart';
 
 class PaymentPage extends StatefulWidget {
@@ -24,30 +24,7 @@ class _PaymentPageState extends State<PaymentPage> {
               const SizedBox(
                 height: 20,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
-                  Text("Shipping",
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
-                  Icon(
-                    Icons.more_horiz,
-                    size: 40,
-                  ),
-                  Text("Payment",
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
-                  Icon(
-                    Icons.more_horiz,
-                    size: 40,
-                  ),
-                  Text("Order placed",
-                      style: TextStyle(
-                          color: Colors.grey,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16))
-                ],
-              ),
+              progressBar(),
               const SizedBox(
                 height: 10,
               ),
@@ -71,99 +48,52 @@ class _PaymentPageState extends State<PaymentPage> {
               const SizedBox(
                 height: 20,
               ),
-              Container(
-                padding: const EdgeInsets.only(top: 30, left: 30, right: 30),
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const ConfirmPage()));
-                  },
-                  child: Row(
-                    children: const [
-                      Text(
-                        "Cash on Delivery",
-                        style: TextStyle(
-                            color: Colors.white, fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                    mainAxisAlignment: MainAxisAlignment.center,
-                  ),
-                  style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(Colors.black),
-                      padding: MaterialStateProperty.all(
-                          const EdgeInsets.symmetric(vertical: 12)),
-                      shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(18.0)))),
+              //BUTTONS
+              const IntButton(
+                title: "Cash On Delivery",
+                route: ConfirmPage(),
+              ),
+              const Padding(
+                padding: EdgeInsets.only(top: 10),
+                child: IntButton(
+                  title: "Pay Through Upi",
+                  route: ConfirmPage(),
                 ),
               ),
-              Container(
-                padding: const EdgeInsets.only(top: 10, left: 30, right: 30),
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const ConfirmPage()));
-                  },
-                  child: Row(
-                    children: const [
-                      Text(
-                        "Pay through Upi",
-                        style: TextStyle(
-                            color: Colors.white, fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                    mainAxisAlignment: MainAxisAlignment.center,
-                  ),
-                  style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(Colors.black),
-                      padding: MaterialStateProperty.all(
-                          const EdgeInsets.symmetric(vertical: 12)),
-                      shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(18.0)))),
-                ),
-              ),
-              Container(
-                padding: const EdgeInsets.only(top: 60, left: 30, right: 30),
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const ConfirmPage()));
-                  },
-                  child: Row(
-                    children: const [
-                      Icon(
-                        Icons.lock,
-                        size: 20,
-                      ),
-                      Text(
-                        " Pay Now \$75",
-                        style: TextStyle(
-                            color: Colors.white, fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                    mainAxisAlignment: MainAxisAlignment.center,
-                  ),
-                  style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(Colors.black),
-                      padding: MaterialStateProperty.all(
-                          const EdgeInsets.symmetric(vertical: 10)),
-                      shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(18.0)))),
+              const Padding(
+                padding: EdgeInsets.only(top: 60),
+                child: IntButton(
+                  title: "Pay Now \$75",
+                  route: ConfirmPage(),
                 ),
               ),
             ],
           ),
         ),
       ),
-      //Payment AND ORDERPLACED
-      //TEXT
-      //INPUT FORM
-      //BUTTON
+    );
+  }
+
+  Widget progressBar() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: const [
+        Text("Shipping",
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+        Icon(
+          Icons.more_horiz,
+          size: 40,
+        ),
+        Text("Payment",
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+        Icon(
+          Icons.more_horiz,
+          size: 40,
+        ),
+        Text("Order placed",
+            style: TextStyle(
+                color: Colors.grey, fontWeight: FontWeight.bold, fontSize: 16))
+      ],
     );
   }
 }

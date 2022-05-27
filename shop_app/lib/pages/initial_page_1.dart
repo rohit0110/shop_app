@@ -56,52 +56,55 @@ class InitialPage1 extends StatelessWidget {
         child: Column(children: [
           Container(
             margin: const EdgeInsets.fromLTRB(30, 200, 30, 200),
-            child: Column(
+            child: Row(
               children: [
-                Row(
-                  children: [heading],
-                ),
-                const SizedBox(
-                  height: 40,
-                ),
-                Row(
-                  children: [subheading1],
-                ),
-                Row(
-                  children: [subheading2],
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    heading,
+                    const SizedBox(
+                      height: 50,
+                    ),
+                    subheading1,
+                    subheading2
+                  ],
                 )
               ],
             ),
           ),
-          Container(
-            margin: const EdgeInsets.symmetric(horizontal: 30),
-            child: ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).push(_createRoute());
-              },
-              child: Row(
-                children: const [
-                  Text(
-                    "Lets Explore",
-                    style: TextStyle(
-                        color: Colors.black, fontWeight: FontWeight.bold),
-                  ),
-                  Icon(
-                    Icons.arrow_forward,
-                    color: Colors.black,
-                  )
-                ],
-                mainAxisAlignment: MainAxisAlignment.center,
-              ),
-              style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.white),
-                  padding: MaterialStateProperty.all(
-                      const EdgeInsets.symmetric(horizontal: 60)),
-                  shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(18.0)))),
-            ),
-          )
+          specButton(context)
         ]),
+      ),
+    );
+  }
+
+  Widget specButton(context) {
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 30),
+      child: ElevatedButton(
+        onPressed: () {
+          Navigator.of(context).push(_createRoute());
+        },
+        child: Row(
+          children: const [
+            Text(
+              "Lets Explore",
+              style:
+                  TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+            ),
+            Icon(
+              Icons.arrow_forward,
+              color: Colors.black,
+            )
+          ],
+          mainAxisAlignment: MainAxisAlignment.center,
+        ),
+        style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.all(Colors.white),
+            padding: MaterialStateProperty.all(
+                const EdgeInsets.symmetric(horizontal: 60)),
+            shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(18.0)))),
       ),
     );
   }

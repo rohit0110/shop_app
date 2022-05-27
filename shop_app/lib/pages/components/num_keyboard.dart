@@ -13,7 +13,7 @@ class _NumKeyboardState extends State<NumKeyboard> {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 30),
-      color: Color.fromARGB(255, 228, 228, 228),
+      color: const Color.fromARGB(255, 228, 228, 228),
       height: 300,
       child: GridView.count(
         mainAxisSpacing: 15,

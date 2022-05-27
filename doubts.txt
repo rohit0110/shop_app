@@ -1,5 +1,5 @@
-add shadow to keyboard buttons
+
 buttons for color and size selection
-add animation betwee pages
 stack the red dot on shopping bag
-buttons size on different pages
+new header for outside screens
+suffix/prefix icons outside

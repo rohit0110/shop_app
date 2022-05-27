@@ -19,12 +19,12 @@ class _MainHeaderState extends State<MainHeader> {
             onPressed: () {
               Navigator.pop(context);
             },
-            icon: const Icon(
-              Icons.arrow_back_ios,
+            icon: Icon(
+              (widget.title == "Home") ? Icons.menu : Icons.arrow_back_ios,
               color: Colors.black,
             )),
         Text(
-          widget.title,
+          (widget.title == "Home") ? "" : widget.title,
           style: const TextStyle(
               color: Colors.black, fontWeight: FontWeight.bold, fontSize: 16),
         ),

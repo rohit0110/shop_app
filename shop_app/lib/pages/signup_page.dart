@@ -1,6 +1,7 @@
 import 'dart:ui';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:shop_app/pages/components/ext_button.dart';
 import 'package:shop_app/pages/otp_page.dart';
 import 'package:shop_app/pages/signin_page.dart';
 
@@ -56,172 +57,41 @@ class SignUpPage extends StatelessWidget {
               margin: const EdgeInsets.fromLTRB(30, 20, 30, 0),
               child: Column(
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      IconButton(
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
-                          icon: const Icon(
-                            Icons.arrow_back_ios,
-                            color: Colors.white,
-                          )),
-                      TextButton(
-                          onPressed: () {},
-                          style: ButtonStyle(
-                              backgroundColor: MaterialStateProperty.all(
-                                  Colors.transparent)),
-                          child: Row(
-                            children: const [
-                              Text(
-                                "Skip",
-                                style: TextStyle(color: Colors.white),
-                              ),
-                              Icon(
-                                Icons.keyboard_arrow_right,
-                                color: Colors.white,
-                              )
-                            ],
-                          ))
-                    ],
-                  ),
+                  signUpHeader(context),
                   const SizedBox(height: 50),
                   Row(
-                    children: [heading],
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Row(
-                    children: [subheading1],
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          heading,
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          subheading1
+                        ],
+                      )
+                    ],
                   ),
                   const SizedBox(height: 20),
-                  Column(children: const [
-                    TextField(
-                      textAlignVertical: TextAlignVertical.bottom,
-                      decoration: InputDecoration(
-                          enabledBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(color: Colors.white)),
-                          hintText: 'Name',
-                          hintStyle: TextStyle(color: Colors.white),
-                          prefixIcon: Icon(
-                            Icons.person,
-                            color: Colors.white,
-                          )),
-                    ),
-                    TextField(
-                      textAlignVertical: TextAlignVertical.bottom,
-                      decoration: InputDecoration(
-                          enabledBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(color: Colors.white)),
-                          hintText: 'Enter Email or Phone',
-                          hintStyle: TextStyle(color: Colors.white),
-                          prefixIcon: Icon(
-                            Icons.mail,
-                            color: Colors.white,
-                          )),
-                    ),
-                    SizedBox(
-                      height: 30,
-                    ),
-                    TextField(
-                      textAlignVertical: TextAlignVertical.bottom,
-                      decoration: InputDecoration(
-                          enabledBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(color: Colors.white)),
-                          focusColor: Colors.white,
-                          hintText: 'Password',
-                          hintStyle: TextStyle(color: Colors.white),
-                          prefixIcon: Icon(
-                            Icons.password,
-                            color: Colors.white,
-                          )),
-                    ),
-                  ]),
+                  formField(),
                   const SizedBox(
                     height: 30,
                   ),
-                  Container(
-                    margin:
-                        const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                    child: ElevatedButton(
-                      onPressed: () {
-                        //SHOW SIGNED IN?
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const OTPage()));
-                      },
-                      child: Row(
-                        children: const [
-                          Icon(
-                            Icons.mail,
-                            color: Colors.black,
-                            size: 16,
-                          ),
-                          SizedBox(
-                            width: 5,
-                          ),
-                          Text(
-                            "Sign Up",
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ],
-                        mainAxisAlignment: MainAxisAlignment.center,
-                      ),
-                      style: ButtonStyle(
-                          backgroundColor:
-                              MaterialStateProperty.all(Colors.white),
-                          padding: MaterialStateProperty.all(
-                              const EdgeInsets.symmetric(horizontal: 60)),
-                          shape: MaterialStateProperty.all(
-                              RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(18.0)))),
-                    ),
-                  ),
-                  Container(
-                    margin: const EdgeInsets.symmetric(horizontal: 10),
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const OTPage()));
-                      },
-                      child: Row(
-                        children: const [
-                          Text(
-                            "f",
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold),
-                          ),
-                          SizedBox(
-                            width: 5,
-                          ),
-                          Text(
-                            "Log In with facebook",
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ],
-                        mainAxisAlignment: MainAxisAlignment.center,
-                      ),
-                      style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all(
-                              const Color.fromARGB(255, 9, 6, 169)),
-                          padding: MaterialStateProperty.all(
-                              const EdgeInsets.symmetric(horizontal: 60)),
-                          shape: MaterialStateProperty.all(
-                              RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(18.0)))),
-                    ),
-                  ),
+                  const ExtButton(
+                      route: OTPage(),
+                      title: "Sign Up",
+                      titleColor: Colors.black,
+                      bgColor: Colors.white,
+                      hasIcon: true,
+                      whichIcon: Icons.mail),
+                  const ExtButton(
+                      route: SignInPage(),
+                      title: "f  Log In with facebook",
+                      titleColor: Colors.white,
+                      bgColor: Color.fromARGB(255, 9, 6, 169),
+                      hasIcon: false,
+                      whichIcon: Icons.abc),
                   const SizedBox(
                     height: 10,
                   ),
@@ -241,5 +111,82 @@ class SignUpPage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Widget signUpHeader(context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: const Icon(
+              Icons.arrow_back_ios,
+              color: Colors.white,
+            )),
+        TextButton(
+            onPressed: () {},
+            style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(Colors.transparent)),
+            child: Row(
+              children: const [
+                Text(
+                  "Skip",
+                  style: TextStyle(color: Colors.white),
+                ),
+                Icon(
+                  Icons.keyboard_arrow_right,
+                  color: Colors.white,
+                )
+              ],
+            ))
+      ],
+    );
+  }
+
+  Widget formField() {
+    return Column(children: const [
+      TextField(
+        textAlignVertical: TextAlignVertical.bottom,
+        decoration: InputDecoration(
+            enabledBorder: UnderlineInputBorder(
+                borderSide: BorderSide(color: Colors.white)),
+            hintText: 'Name',
+            hintStyle: TextStyle(color: Colors.white),
+            prefixIcon: Icon(
+              Icons.person,
+              color: Colors.white,
+            )),
+      ),
+      TextField(
+        textAlignVertical: TextAlignVertical.bottom,
+        decoration: InputDecoration(
+            enabledBorder: UnderlineInputBorder(
+                borderSide: BorderSide(color: Colors.white)),
+            hintText: 'Enter Email or Phone',
+            hintStyle: TextStyle(color: Colors.white),
+            prefixIcon: Icon(
+              Icons.mail,
+              color: Colors.white,
+            )),
+      ),
+      SizedBox(
+        height: 30,
+      ),
+      TextField(
+        textAlignVertical: TextAlignVertical.bottom,
+        decoration: InputDecoration(
+            enabledBorder: UnderlineInputBorder(
+                borderSide: BorderSide(color: Colors.white)),
+            focusColor: Colors.white,
+            hintText: 'Password',
+            hintStyle: TextStyle(color: Colors.white),
+            prefixIcon: Icon(
+              Icons.password,
+              color: Colors.white,
+            )),
+      ),
+    ]);
   }
 }

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:shop_app/pages/favorites.dart';
 import 'package:shop_app/pages/homepage.dart';
 import 'package:shop_app/pages/notiffs.dart';
-import 'package:shop_app/pages/preview.dart';
 import 'package:shop_app/pages/profile.dart';
 
 class BasePage extends StatefulWidget {

@@ -31,8 +31,7 @@ class _CarouselState extends State<Carousel> {
                   )),
             ))
         .toList();
-    return Container(
-        child: CarouselSlider(
+    return CarouselSlider(
       options: CarouselOptions(
         aspectRatio: 1,
         enlargeCenterPage: true,
@@ -41,6 +40,6 @@ class _CarouselState extends State<Carousel> {
         autoPlay: false,
       ),
       items: imageSliders,
-    ));
+    );
   }
 }

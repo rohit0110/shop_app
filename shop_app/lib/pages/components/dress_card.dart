@@ -37,7 +37,7 @@ class _DressCardState extends State<DressCard> {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Container(
-                      margin: EdgeInsets.only(top: 5),
+                      margin: const EdgeInsets.only(top: 5),
                       height: 30,
                       decoration: const BoxDecoration(
                           color: Colors.white, shape: BoxShape.circle),

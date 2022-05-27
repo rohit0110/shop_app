@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shop_app/pages/components/header.dart';
+import 'package:shop_app/pages/components/int_button.dart';
 import 'package:shop_app/pages/payment.dart';
 
 class ShippingPage extends StatefulWidget {
@@ -22,31 +23,7 @@ class _ShippingPageState extends State<ShippingPage> {
               const SizedBox(
                 height: 20,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
-                  Text("Shipping",
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
-                  Icon(
-                    Icons.more_horiz,
-                    size: 40,
-                  ),
-                  Text("Payment",
-                      style: TextStyle(
-                          color: Colors.grey,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16)),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Text("Order placed",
-                      style: TextStyle(
-                          color: Colors.grey,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16))
-                ],
-              ),
+              progressBar(),
               const SizedBox(
                 height: 30,
               ),
@@ -62,138 +39,64 @@ class _ShippingPageState extends State<ShippingPage> {
                 child: Form(
                     child: Column(
                   children: [
-                    TextFormField(
-                      style: const TextStyle(fontWeight: FontWeight.bold),
-                      decoration: const InputDecoration(
-                          hintText: "Enter Name",
-                          labelText: "Full Name",
-                          border: UnderlineInputBorder(
-                              borderSide: BorderSide(color: Colors.black)),
-                          focusedBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(color: Colors.black)),
-                          enabledBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(color: Colors.black)),
-                          labelStyle: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold)),
-                    ),
-                    TextFormField(
-                      style: const TextStyle(fontWeight: FontWeight.bold),
-                      decoration: const InputDecoration(
-                          hintText: "Enter address",
-                          labelText: "Address",
-                          border: UnderlineInputBorder(
-                              borderSide: BorderSide(color: Colors.black)),
-                          focusedBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(color: Colors.black)),
-                          enabledBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(color: Colors.black)),
-                          labelStyle: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold)),
-                    ),
-                    TextFormField(
-                      style: const TextStyle(fontWeight: FontWeight.bold),
-                      decoration: const InputDecoration(
-                          hintText: "Enter Pin code",
-                          labelText: "Pin Code",
-                          border: UnderlineInputBorder(
-                              borderSide: BorderSide(color: Colors.black)),
-                          focusedBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(color: Colors.black)),
-                          enabledBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(color: Colors.black)),
-                          labelStyle: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold)),
-                    ),
-                    TextFormField(
-                      style: const TextStyle(fontWeight: FontWeight.bold),
-                      decoration: const InputDecoration(
-                          hintText: "Enter Mobile Number",
-                          labelText: "Mobile Number",
-                          border: UnderlineInputBorder(
-                              borderSide: BorderSide(color: Colors.black)),
-                          focusedBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(color: Colors.black)),
-                          enabledBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(color: Colors.black)),
-                          labelStyle: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold)),
-                    ),
-                    TextFormField(
-                      style: const TextStyle(fontWeight: FontWeight.bold),
-                      decoration: const InputDecoration(
-                          hintText: "Enter City",
-                          labelText: "City",
-                          border: UnderlineInputBorder(
-                              borderSide: BorderSide(color: Colors.black)),
-                          focusedBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(color: Colors.black)),
-                          enabledBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(color: Colors.black)),
-                          labelStyle: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold)),
-                    ),
-                    TextFormField(
-                      style: const TextStyle(fontWeight: FontWeight.bold),
-                      decoration: const InputDecoration(
-                          hintText: "Enter Country",
-                          labelText: "Country",
-                          border: UnderlineInputBorder(
-                              borderSide: BorderSide(color: Colors.black)),
-                          focusedBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(color: Colors.black)),
-                          enabledBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(color: Colors.black)),
-                          labelStyle: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold)),
-                    ),
+                    formField("Enter Name", "Full Name"),
+                    formField("Enter Address", "Address"),
+                    formField("Enter Pin Code", "Pin Code"),
+                    formField("Enter Mobile Number", "Mobile Number"),
+                    formField("Enter City", "City"),
+                    formField("Enter Address", "Address"),
+                    formField("Enter Country", "Country"),
                   ],
                 )),
               ),
               const SizedBox(
                 height: 20,
               ),
-              Container(
-                padding: const EdgeInsets.symmetric(vertical: 30),
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const PaymentPage()));
-                  },
-                  child: Row(
-                    children: const [
-                      Text(
-                        "Continue to pay",
-                        style: TextStyle(
-                            color: Colors.white, fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                    mainAxisAlignment: MainAxisAlignment.center,
-                  ),
-                  style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(Colors.black),
-                      padding: MaterialStateProperty.all(
-                          const EdgeInsets.symmetric(
-                              horizontal: 60, vertical: 12)),
-                      shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(18.0)))),
-                ),
-              ),
+              const IntButton(title: "Continue to pay", route: PaymentPage())
             ],
           ),
         ),
       ),
-      //SHIPPING AND ORDERPLACED
-      //TEXT
-      //INPUT FORM
-      //BUTTON
+    );
+  }
+
+  Widget formField(String hint, String label) {
+    return TextFormField(
+      style: const TextStyle(fontWeight: FontWeight.bold),
+      decoration: InputDecoration(
+          hintText: hint,
+          labelText: label,
+          border: const UnderlineInputBorder(
+              borderSide: BorderSide(color: Colors.black)),
+          focusedBorder: const UnderlineInputBorder(
+              borderSide: BorderSide(color: Colors.black)),
+          enabledBorder: const UnderlineInputBorder(
+              borderSide: BorderSide(color: Colors.black)),
+          labelStyle: const TextStyle(
+              color: Colors.black, fontWeight: FontWeight.bold)),
+    );
+  }
+
+  Widget progressBar() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: const [
+        Text("Shipping",
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+        Icon(
+          Icons.more_horiz,
+          size: 40,
+        ),
+        Text("Payment",
+            style: TextStyle(
+                color: Colors.grey, fontWeight: FontWeight.bold, fontSize: 16)),
+        SizedBox(
+          width: 10,
+        ),
+        Text("Order placed",
+            style: TextStyle(
+                color: Colors.grey, fontWeight: FontWeight.bold, fontSize: 16))
+      ],
     );
   }
 }

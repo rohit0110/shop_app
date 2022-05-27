@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shop_app/pages/components/header.dart';
+import 'package:shop_app/pages/components/int_button.dart';
 import 'package:shop_app/pages/components/profile_card.dart';
 import 'package:shop_app/pages/components/profile_deets.dart';
 import 'package:shop_app/pages/signin_page.dart';
@@ -17,55 +18,27 @@ class _ProfilePageState extends State<ProfilePage> {
   Widget build(BuildContext context) {
     return Container(
         margin: const EdgeInsets.fromLTRB(30, 20, 30, 0),
-        child: Column(children: [
-          const MainHeader(title: "My Account", icons: false),
-          const SizedBox(
+        child: Column(children: const [
+          MainHeader(title: "My Account", icons: false),
+          SizedBox(
             height: 20,
           ),
-          const ProfileDeets(),
-          const SizedBox(
+          ProfileDeets(),
+          SizedBox(
             height: 30,
           ),
-          const ProfileCard(title: "My Order", order: true),
-          const ProfileCard(title: "My Cards", order: false),
-          const ProfileCard(title: "Payment History", order: false),
-          const ProfileCard(title: "My Reviews", order: false),
-          const ProfileCard(title: "My Addresses", order: false),
-          const ProfileCard(title: "Change Email or Password", order: false),
-          const SizedBox(
+          ProfileCard(title: "My Order", order: true),
+          ProfileCard(title: "My Cards", order: false),
+          ProfileCard(title: "Payment History", order: false),
+          ProfileCard(title: "My Reviews", order: false),
+          ProfileCard(title: "My Addresses", order: false),
+          ProfileCard(title: "Change Email or Password", order: false),
+          SizedBox(
             height: 60,
           ),
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 30),
-            child: ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const SignInPage()));
-              },
-              child: Row(
-                children: const [
-                  Icon(
-                    Icons.logout,
-                    color: Colors.white,
-                    size: 20,
-                  ),
-                  Text(
-                    " Log Out",
-                    style: TextStyle(
-                        color: Colors.white, fontWeight: FontWeight.bold),
-                  ),
-                ],
-                mainAxisAlignment: MainAxisAlignment.center,
-              ),
-              style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.black),
-                  padding: MaterialStateProperty.all(
-                      const EdgeInsets.symmetric(horizontal: 60, vertical: 10)),
-                  shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(18.0)))),
-            ),
+          Padding(
+            padding: EdgeInsets.symmetric(vertical: 30),
+            child: IntButton(title: "Log Out", route: SignInPage()),
           ),
         ]));
   }
