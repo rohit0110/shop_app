@@ -13,10 +13,11 @@ class _NotifPageState extends State<NotifPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Container(
-            margin: const EdgeInsets.fromLTRB(30, 20, 30, 0),
-            child: Column(children: const [
-              MainHeader(title: "Notifications", icons: false)
-            ])));
+      body: Container(
+        margin: const EdgeInsets.fromLTRB(30, 20, 30, 0),
+        child: Column(
+            children: const [MainHeader(title: "Notifications", icons: false)]),
+      ),
+    );
   }
 }
