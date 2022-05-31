@@ -14,7 +14,7 @@ class _NotificationsPageState extends State<NotificationsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        margin: const EdgeInsets.fromLTRB(30, 20, 30, 0),
+        margin: const EdgeInsets.fromLTRB(30, 0, 30, 0),
         child: Column(
             children: const [MainHeader(title: "Notifications", icons: false)]),
       ),

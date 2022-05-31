@@ -65,55 +65,57 @@ class _OTPageState extends State<OTPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Expanded(
-            flex: 3,
-            child: Container(
-              margin: const EdgeInsets.fromLTRB(30, 20, 30, 0),
-              child: Column(children: [
-                const MainHeader(title: "", icons: false),
-                const SizedBox(height: 50),
-                Row(
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        heading,
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        subheading1,
-                        subheading2,
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        subheading3,
-                        subheading4
-                      ],
-                    )
-                  ],
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                OtpTextField(
-                  numberOfFields: 4,
-                  readOnly: true,
-                  showCursor: true,
-                  margin: const EdgeInsets.all(10),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                sendagain,
-              ]),
+    return SafeArea(
+      child: Scaffold(
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Expanded(
+              flex: 3,
+              child: Container(
+                margin: const EdgeInsets.fromLTRB(30, 0, 30, 0),
+                child: Column(children: [
+                  const MainHeader(title: "", icons: false),
+                  const SizedBox(height: 50),
+                  Row(
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          heading,
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          subheading1,
+                          subheading2,
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          subheading3,
+                          subheading4
+                        ],
+                      )
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  OtpTextField(
+                    numberOfFields: 4,
+                    readOnly: true,
+                    showCursor: true,
+                    margin: const EdgeInsets.all(10),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  sendagain,
+                ]),
+              ),
             ),
-          ),
-          const Expanded(flex: 2, child: NumKeyboard()),
-        ],
+            const Expanded(flex: 2, child: NumKeyboard()),
+          ],
+        ),
       ),
     );
   }

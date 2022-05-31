@@ -18,73 +18,75 @@ class PreviewPage extends StatefulWidget {
 class _PreviewPageState extends State<PreviewPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        children: [
-          Container(
-            margin: const EdgeInsets.fromLTRB(30, 20, 30, 0),
-            child: const MainHeader(
-              title: "Preview",
-              icons: true,
+    return SafeArea(
+      child: Scaffold(
+        body: Column(
+          children: [
+            Container(
+              margin: const EdgeInsets.fromLTRB(30, 0, 30, 0),
+              child: const MainHeader(
+                title: "Preview",
+                icons: true,
+              ),
             ),
-          ),
-          const SizedBox(
-            height: 30,
-          ),
-          const Carousel(),
-          const SizedBox(
-            height: 20,
-          ),
-          const Text(
-            "Casual Puff Sleeve Solid Women Red Top",
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 30),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
-                    Text(
-                      "Color",
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                    SelectColor()
-                  ],
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(right: 40),
-                  child: Column(
+            const SizedBox(
+              height: 30,
+            ),
+            const Carousel(),
+            const SizedBox(
+              height: 20,
+            ),
+            const Text(
+              "Casual Puff Sleeve Solid Women Red Top",
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 30),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: const [
                       Text(
-                        "Select Size",
+                        "Color",
                         style: TextStyle(fontWeight: FontWeight.bold),
                       ),
-                      SelectSize()
+                      SelectColor()
                     ],
                   ),
-                )
-              ],
+                  Padding(
+                    padding: const EdgeInsets.only(right: 40),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: const [
+                        Text(
+                          "Select Size",
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        SelectSize()
+                      ],
+                    ),
+                  )
+                ],
+              ),
             ),
-          ),
-          const Padding(
-            padding: EdgeInsets.all(20.0),
-            child: IntButton(
-              title: "Add Cart",
-              route: CartPage(),
-              prefix: Icons.shopping_bag,
-              postfix: Icons.abc,
-              hasPre: true,
-              hasPost: false,
-            ),
-          )
-        ],
+            const Padding(
+              padding: EdgeInsets.all(20.0),
+              child: IntButton(
+                title: "Add Cart",
+                route: CartPage(),
+                prefix: Icons.shopping_bag,
+                postfix: Icons.abc,
+                hasPre: true,
+                hasPost: false,
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

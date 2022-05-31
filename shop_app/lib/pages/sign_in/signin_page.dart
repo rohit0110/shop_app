@@ -52,76 +52,78 @@ class _SignInPageState extends State<SignInPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      resizeToAvoidBottomInset: false,
-      body: Container(
-        width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height,
-        decoration: const BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage("assets/blue_bg.jpg"), fit: BoxFit.fill)),
-        child: BackdropFilter(
-          filter: ImageFilter.blur(sigmaX: 2, sigmaY: 2),
-          child: Column(
-            children: [
-              Container(
-                margin: const EdgeInsets.fromLTRB(30, 20, 30, 0),
-                child: Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        IconButton(
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
-                          icon: const Icon(
-                            Icons.arrow_back_ios,
-                            color: Colors.white,
+    return SafeArea(
+      child: Scaffold(
+        resizeToAvoidBottomInset: false,
+        body: Container(
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height,
+          decoration: const BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage("assets/blue_bg.jpg"), fit: BoxFit.fill)),
+          child: BackdropFilter(
+            filter: ImageFilter.blur(sigmaX: 2, sigmaY: 2),
+            child: Column(
+              children: [
+                Container(
+                  margin: const EdgeInsets.fromLTRB(30, 0, 30, 0),
+                  child: Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          IconButton(
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            icon: const Icon(
+                              Icons.arrow_back_ios,
+                              color: Colors.white,
+                            ),
                           ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 50),
-                    Row(
-                      children: [heading],
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    Row(
-                      children: [subheading1],
-                    ),
-                    const SizedBox(height: 20),
-                    formField(),
-                    const SizedBox(
-                      height: 30,
-                    ),
-                    miscFeatures(),
-                    const ExtButton(
-                        route: BasePage(),
-                        title: "Sign In",
-                        titleColor: Colors.black,
-                        bgColor: Colors.white,
-                        hasIcon: false,
-                        whichIcon: Icons.abc),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    RichText(
-                      text: TextSpan(
-                          recognizer: TapGestureRecognizer()
-                            ..onTap = (() {
-                              Navigator.of(context)
-                                  .push(_createRoute(SignUpPage()));
-                            }),
-                          style: const TextStyle(color: Colors.white),
-                          text: "Dont Have a account? Create Account"),
-                    )
-                  ],
+                        ],
+                      ),
+                      const SizedBox(height: 50),
+                      Row(
+                        children: [heading],
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      Row(
+                        children: [subheading1],
+                      ),
+                      const SizedBox(height: 20),
+                      formField(),
+                      const SizedBox(
+                        height: 30,
+                      ),
+                      miscFeatures(),
+                      const ExtButton(
+                          route: BasePage(),
+                          title: "Sign In",
+                          titleColor: Colors.black,
+                          bgColor: Colors.white,
+                          hasIcon: false,
+                          whichIcon: Icons.abc),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      RichText(
+                        text: TextSpan(
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = (() {
+                                Navigator.of(context)
+                                    .push(_createRoute(SignUpPage()));
+                              }),
+                            style: const TextStyle(color: Colors.white),
+                            text: "Dont Have a account? Create Account"),
+                      )
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

@@ -32,52 +32,54 @@ class _BasePageState extends State<BasePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      drawer: const Drawer(),
-      body: PageView(
-        controller: pageController,
-        onPageChanged: (index) {
-          setState(() {
-            selectedIndex = index;
-          });
-        },
-        children: const [
-          HomePage(),
-          NotificationsPage(),
-          FavoritesPage(),
-          ProfilePage(),
-        ],
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const [
-          BottomNavigationBarItem(
-              icon: Icon(
-                Icons.home,
-                color: Colors.black,
-              ),
-              label: 'Home'),
-          BottomNavigationBarItem(
-              icon: Icon(
-                Icons.notifications,
-                color: Colors.black,
-              ),
-              label: 'Notifications'),
-          BottomNavigationBarItem(
-              icon: Icon(
-                Icons.favorite,
-                color: Colors.black,
-              ),
-              label: 'Favourites'),
-          BottomNavigationBarItem(
-              icon: Icon(
-                Icons.person,
-                color: Colors.black,
-              ),
-              label: 'My Account'),
-        ],
-        currentIndex: selectedIndex,
-        selectedItemColor: Colors.black,
-        onTap: _onItemTapped,
+    return SafeArea(
+      child: Scaffold(
+        drawer: const Drawer(),
+        body: PageView(
+          controller: pageController,
+          onPageChanged: (index) {
+            setState(() {
+              selectedIndex = index;
+            });
+          },
+          children: const [
+            HomePage(),
+            NotificationsPage(),
+            FavoritesPage(),
+            ProfilePage(),
+          ],
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          items: const [
+            BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.home,
+                  color: Colors.black,
+                ),
+                label: 'Home'),
+            BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.notifications,
+                  color: Colors.black,
+                ),
+                label: 'Notifications'),
+            BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.favorite,
+                  color: Colors.black,
+                ),
+                label: 'Favourites'),
+            BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.person,
+                  color: Colors.black,
+                ),
+                label: 'My Account'),
+          ],
+          currentIndex: selectedIndex,
+          selectedItemColor: Colors.black,
+          onTap: _onItemTapped,
+        ),
       ),
     );
   }

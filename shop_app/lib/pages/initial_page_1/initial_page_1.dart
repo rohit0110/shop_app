@@ -46,35 +46,37 @@ class InitialPage1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height,
-        decoration: const BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage("assets/hat.jpg"), fit: BoxFit.fill)),
-        child: Column(
-          children: [
-            Container(
-              margin: const EdgeInsets.fromLTRB(30, 200, 30, 200),
-              child: Row(
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      heading,
-                      const SizedBox(
-                        height: 50,
-                      ),
-                      subheading1,
-                      subheading2
-                    ],
-                  )
-                ],
+    return SafeArea(
+      child: Scaffold(
+        body: Container(
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height,
+          decoration: const BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage("assets/hat.jpg"), fit: BoxFit.fill)),
+          child: Column(
+            children: [
+              Container(
+                margin: const EdgeInsets.fromLTRB(30, 200, 30, 200),
+                child: Row(
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        heading,
+                        const SizedBox(
+                          height: 50,
+                        ),
+                        subheading1,
+                        subheading2
+                      ],
+                    )
+                  ],
+                ),
               ),
-            ),
-            specButton(context),
-          ],
+              specButton(context),
+            ],
+          ),
         ),
       ),
     );

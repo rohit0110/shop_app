@@ -17,7 +17,7 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.fromLTRB(30, 20, 30, 0),
+      margin: const EdgeInsets.fromLTRB(30, 0, 30, 0),
       child: Column(
         children: const [
           MainHeader(title: "My Account", icons: false),

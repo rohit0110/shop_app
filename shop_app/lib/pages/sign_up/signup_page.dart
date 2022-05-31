@@ -50,78 +50,80 @@ class SignUpPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      resizeToAvoidBottomInset: false,
-      body: Container(
-        width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height,
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage("assets/stand.jpg"), fit: BoxFit.fill),
-        ),
-        child: BackdropFilter(
-          filter: ImageFilter.blur(sigmaX: 2, sigmaY: 2),
-          child: Column(
-            children: [
-              Container(
-                margin: const EdgeInsets.fromLTRB(30, 20, 30, 0),
-                child: Column(
-                  children: [
-                    signUpHeader(context),
-                    const SizedBox(height: 50),
-                    Row(
-                      children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            heading,
-                            const SizedBox(
-                              height: 20,
-                            ),
-                            subheading1
-                          ],
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 20),
-                    formField(),
-                    const SizedBox(
-                      height: 30,
-                    ),
-                    const ExtButton(
-                        route: OTPage(),
-                        title: "Sign Up",
-                        titleColor: Colors.black,
-                        bgColor: Colors.white,
-                        hasIcon: true,
-                        whichIcon: Icons.mail),
-                    const ExtButton(
-                        route: SignInPage(),
-                        title: "f  Log In with facebook",
-                        titleColor: Colors.white,
-                        bgColor: Color.fromARGB(255, 9, 6, 169),
-                        hasIcon: false,
-                        whichIcon: Icons.abc),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    RichText(
-                      text: TextSpan(
-                          recognizer: TapGestureRecognizer()
-                            ..onTap = (() {
-                              Navigator.of(context).push(
-                                _createRoute(
-                                  const SignInPage(),
-                                ),
-                              );
-                            }),
-                          style: const TextStyle(color: Colors.white),
-                          text: "Already a account? Log in"),
-                    )
-                  ],
+    return SafeArea(
+      child: Scaffold(
+        resizeToAvoidBottomInset: false,
+        body: Container(
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height,
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage("assets/stand.jpg"), fit: BoxFit.fill),
+          ),
+          child: BackdropFilter(
+            filter: ImageFilter.blur(sigmaX: 2, sigmaY: 2),
+            child: Column(
+              children: [
+                Container(
+                  margin: const EdgeInsets.fromLTRB(30, 0, 30, 0),
+                  child: Column(
+                    children: [
+                      signUpHeader(context),
+                      const SizedBox(height: 50),
+                      Row(
+                        children: [
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              heading,
+                              const SizedBox(
+                                height: 20,
+                              ),
+                              subheading1
+                            ],
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 20),
+                      formField(),
+                      const SizedBox(
+                        height: 30,
+                      ),
+                      const ExtButton(
+                          route: OTPage(),
+                          title: "Sign Up",
+                          titleColor: Colors.black,
+                          bgColor: Colors.white,
+                          hasIcon: true,
+                          whichIcon: Icons.mail),
+                      const ExtButton(
+                          route: SignInPage(),
+                          title: "f  Log In with facebook",
+                          titleColor: Colors.white,
+                          bgColor: Color.fromARGB(255, 9, 6, 169),
+                          hasIcon: false,
+                          whichIcon: Icons.abc),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      RichText(
+                        text: TextSpan(
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = (() {
+                                Navigator.of(context).push(
+                                  _createRoute(
+                                    const SignInPage(),
+                                  ),
+                                );
+                              }),
+                            style: const TextStyle(color: Colors.white),
+                            text: "Already a account? Log in"),
+                      )
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

@@ -13,55 +13,57 @@ class ShippingPage extends StatefulWidget {
 class _ShippingPageState extends State<ShippingPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: Container(
-          margin: const EdgeInsets.fromLTRB(30, 20, 30, 0),
-          child: Column(
-            children: [
-              const MainHeader(title: "Shipping Address", icons: true),
-              const SizedBox(
-                height: 20,
-              ),
-              progressBar(),
-              const SizedBox(
-                height: 30,
-              ),
-              const Align(
-                alignment: AlignmentDirectional.centerStart,
-                child: Text(
-                  "Shipping",
-                  style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+    return SafeArea(
+      child: Scaffold(
+        body: SingleChildScrollView(
+          child: Container(
+            margin: const EdgeInsets.fromLTRB(30, 0, 30, 0),
+            child: Column(
+              children: [
+                const MainHeader(title: "Shipping Address", icons: true),
+                const SizedBox(
+                  height: 20,
                 ),
-              ),
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
-                child: Form(
-                  child: Column(
-                    children: [
-                      formField("Enter Name", "Full Name"),
-                      formField("Enter Address", "Address"),
-                      formField("Enter Pin Code", "Pin Code"),
-                      formField("Enter Mobile Number", "Mobile Number"),
-                      formField("Enter City", "City"),
-                      formField("Enter Address", "Address"),
-                      formField("Enter Country", "Country"),
-                    ],
+                progressBar(),
+                const SizedBox(
+                  height: 30,
+                ),
+                const Align(
+                  alignment: AlignmentDirectional.centerStart,
+                  child: Text(
+                    "Shipping",
+                    style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
                   ),
                 ),
-              ),
-              const SizedBox(
-                height: 40,
-              ),
-              const IntButton(
-                title: "Continue to pay",
-                route: PaymentPage(),
-                prefix: Icons.lock,
-                postfix: Icons.abc,
-                hasPre: false,
-                hasPost: false,
-              )
-            ],
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  child: Form(
+                    child: Column(
+                      children: [
+                        formField("Enter Name", "Full Name"),
+                        formField("Enter Address", "Address"),
+                        formField("Enter Pin Code", "Pin Code"),
+                        formField("Enter Mobile Number", "Mobile Number"),
+                        formField("Enter City", "City"),
+                        formField("Enter Address", "Address"),
+                        formField("Enter Country", "Country"),
+                      ],
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 40,
+                ),
+                const IntButton(
+                  title: "Continue to pay",
+                  route: PaymentPage(),
+                  prefix: Icons.lock,
+                  postfix: Icons.abc,
+                  hasPre: false,
+                  hasPost: false,
+                )
+              ],
+            ),
           ),
         ),
       ),

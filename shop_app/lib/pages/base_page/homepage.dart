@@ -20,18 +20,16 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        children: [
-          Container(
-            margin: const EdgeInsets.fromLTRB(30, 20, 30, 0),
-            child: const MainHeader(title: "Home", icons: true),
-          ),
-          redAdArea(),
-          tabBar(),
-          stagGrid()
-        ],
-      ),
+    return Column(
+      children: [
+        Container(
+          margin: const EdgeInsets.fromLTRB(30, 0, 30, 0),
+          child: const MainHeader(title: "Home", icons: true),
+        ),
+        redAdArea(),
+        tabBar(),
+        stagGrid()
+      ],
     );
   }
 
@@ -84,20 +82,20 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   }
 
   Widget stagGrid() {
-    return Container(
-      margin: const EdgeInsets.fromLTRB(30, 5, 30, 0),
-      padding: const EdgeInsets.only(bottom: 50),
-      height: 410,
-      child: StaggeredGridView.countBuilder(
-        shrinkWrap: true,
-        crossAxisCount: 2,
-        itemCount: 10,
-        itemBuilder: (context, index) {
-          return const DressCard();
-        },
-        staggeredTileBuilder: (index) {
-          return StaggeredTile.count(1, index.isEven ? 1.2 : 1.8);
-        },
+    return Expanded(
+      child: Container(
+        margin: const EdgeInsets.fromLTRB(30, 5, 30, 0),
+        child: StaggeredGridView.countBuilder(
+          shrinkWrap: true,
+          crossAxisCount: 2,
+          itemCount: 10,
+          itemBuilder: (context, index) {
+            return const DressCard();
+          },
+          staggeredTileBuilder: (index) {
+            return StaggeredTile.count(1, index.isEven ? 1.2 : 1.8);
+          },
+        ),
       ),
     );
   }

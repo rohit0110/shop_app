@@ -58,89 +58,91 @@ class InitialPage2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height,
-        decoration: const BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage("assets/sit.jpg"), fit: BoxFit.fill)),
-        child: BackdropFilter(
-          filter: ImageFilter.blur(sigmaX: 2, sigmaY: 2),
-          child: Column(
-            children: [
-              Container(
-                margin: const EdgeInsets.fromLTRB(30, 20, 30, 0),
-                child: Column(
-                  children: [
-                    //HEADER
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        TextButton(
-                          onPressed: () {
-                            Navigator.of(context)
-                                .push(_createRoute(SignUpPage()));
-                          },
-                          style: ButtonStyle(
-                              backgroundColor: MaterialStateProperty.all(
-                                  Colors.transparent)),
-                          child: Row(
-                            children: const [
-                              Text(
-                                "Skip",
-                                style: TextStyle(color: Colors.white),
-                              ),
-                              Icon(
-                                Icons.keyboard_arrow_right,
-                                color: Colors.white,
-                              )
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
+    return SafeArea(
+      child: Scaffold(
+        body: Container(
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height,
+          decoration: const BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage("assets/sit.jpg"), fit: BoxFit.fill)),
+          child: BackdropFilter(
+            filter: ImageFilter.blur(sigmaX: 2, sigmaY: 2),
+            child: Column(
+              children: [
+                Container(
+                  margin: const EdgeInsets.fromLTRB(30, 0, 30, 0),
+                  child: Column(
+                    children: [
+                      //HEADER
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          TextButton(
+                            onPressed: () {
+                              Navigator.of(context)
+                                  .push(_createRoute(SignUpPage()));
+                            },
+                            style: ButtonStyle(
+                                backgroundColor: MaterialStateProperty.all(
+                                    Colors.transparent)),
+                            child: Row(
+                              children: const [
+                                Text(
+                                  "Skip",
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                                Icon(
+                                  Icons.keyboard_arrow_right,
+                                  color: Colors.white,
+                                )
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
 
-                    const SizedBox(height: 150),
-                    Row(
-                      children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            heading,
-                            subheading1,
-                            subheading2,
-                            subheading3
-                          ],
-                        )
-                      ],
-                    ),
-                    const SizedBox(height: 10),
-                    const ExtButton(
-                        route: SignInPage(),
-                        title: "Sign In",
-                        titleColor: Colors.black,
-                        bgColor: Colors.white,
-                        hasIcon: false,
-                        whichIcon: Icons.abc),
-                    ExtButton(
-                        route: SignUpPage(),
-                        title: "Sign Up With Email",
-                        titleColor: Colors.black,
-                        bgColor: Colors.white,
-                        hasIcon: true,
-                        whichIcon: Icons.mail),
-                    const ExtButton(
-                        route: SignInPage(),
-                        title: "f  Log In with facebook",
-                        titleColor: Colors.white,
-                        bgColor: Color.fromARGB(255, 9, 6, 169),
-                        hasIcon: false,
-                        whichIcon: Icons.abc),
-                  ],
+                      const SizedBox(height: 150),
+                      Row(
+                        children: [
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              heading,
+                              subheading1,
+                              subheading2,
+                              subheading3
+                            ],
+                          )
+                        ],
+                      ),
+                      const SizedBox(height: 10),
+                      const ExtButton(
+                          route: SignInPage(),
+                          title: "Sign In",
+                          titleColor: Colors.black,
+                          bgColor: Colors.white,
+                          hasIcon: false,
+                          whichIcon: Icons.abc),
+                      ExtButton(
+                          route: SignUpPage(),
+                          title: "Sign Up With Email",
+                          titleColor: Colors.black,
+                          bgColor: Colors.white,
+                          hasIcon: true,
+                          whichIcon: Icons.mail),
+                      const ExtButton(
+                          route: SignInPage(),
+                          title: "f  Log In with facebook",
+                          titleColor: Colors.white,
+                          bgColor: Color.fromARGB(255, 9, 6, 169),
+                          hasIcon: false,
+                          whichIcon: Icons.abc),
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

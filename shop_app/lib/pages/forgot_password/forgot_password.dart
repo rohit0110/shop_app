@@ -45,9 +45,9 @@ class _OTPageState extends State<ForgotPWPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: SizedBox(
+    return SafeArea(
+      child: Scaffold(
+        body: SizedBox(
           height: MediaQuery.of(context).size.height,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -55,7 +55,7 @@ class _OTPageState extends State<ForgotPWPage> {
               Expanded(
                 flex: 3,
                 child: Container(
-                  margin: const EdgeInsets.fromLTRB(30, 20, 30, 0),
+                  margin: const EdgeInsets.fromLTRB(30, 0, 30, 0),
                   child: Column(
                     children: [
                       const MainHeader(title: "", icons: false),
