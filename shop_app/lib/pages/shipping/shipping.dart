@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shop_app/pages/components/header.dart';
 import 'package:shop_app/pages/components/int_button.dart';
-import 'package:shop_app/pages/payment.dart';
+import 'package:shop_app/pages/payment/payment.dart';
 
 class ShippingPage extends StatefulWidget {
   const ShippingPage({Key? key}) : super(key: key);
@@ -37,17 +37,18 @@ class _ShippingPageState extends State<ShippingPage> {
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 10),
                 child: Form(
-                    child: Column(
-                  children: [
-                    formField("Enter Name", "Full Name"),
-                    formField("Enter Address", "Address"),
-                    formField("Enter Pin Code", "Pin Code"),
-                    formField("Enter Mobile Number", "Mobile Number"),
-                    formField("Enter City", "City"),
-                    formField("Enter Address", "Address"),
-                    formField("Enter Country", "Country"),
-                  ],
-                )),
+                  child: Column(
+                    children: [
+                      formField("Enter Name", "Full Name"),
+                      formField("Enter Address", "Address"),
+                      formField("Enter Pin Code", "Pin Code"),
+                      formField("Enter Mobile Number", "Mobile Number"),
+                      formField("Enter City", "City"),
+                      formField("Enter Address", "Address"),
+                      formField("Enter Country", "Country"),
+                    ],
+                  ),
+                ),
               ),
               const SizedBox(
                 height: 40,
@@ -71,16 +72,20 @@ class _ShippingPageState extends State<ShippingPage> {
     return TextFormField(
       style: const TextStyle(fontWeight: FontWeight.bold),
       decoration: InputDecoration(
-          hintText: hint,
-          labelText: label,
-          border: const UnderlineInputBorder(
-              borderSide: BorderSide(color: Colors.black)),
-          focusedBorder: const UnderlineInputBorder(
-              borderSide: BorderSide(color: Colors.black)),
-          enabledBorder: const UnderlineInputBorder(
-              borderSide: BorderSide(color: Colors.black)),
-          labelStyle: const TextStyle(
-              color: Colors.black, fontWeight: FontWeight.bold)),
+        hintText: hint,
+        labelText: label,
+        border: const UnderlineInputBorder(
+          borderSide: BorderSide(color: Colors.black),
+        ),
+        focusedBorder: const UnderlineInputBorder(
+          borderSide: BorderSide(color: Colors.black),
+        ),
+        enabledBorder: const UnderlineInputBorder(
+          borderSide: BorderSide(color: Colors.black),
+        ),
+        labelStyle:
+            const TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+      ),
     );
   }
 

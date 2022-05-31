@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:shop_app/pages/favorites.dart';
-import 'package:shop_app/pages/homepage.dart';
-import 'package:shop_app/pages/notiffs.dart';
-import 'package:shop_app/pages/profile.dart';
+import 'package:shop_app/pages/base_page/favorites.dart';
+import 'package:shop_app/pages/base_page/homepage.dart';
+import 'package:shop_app/pages/base_page/notiffs.dart';
+import 'package:shop_app/pages/base_page/profile.dart';
 
 class BasePage extends StatefulWidget {
   const BasePage({Key? key}) : super(key: key);
@@ -15,11 +15,13 @@ class _BasePageState extends State<BasePage> {
   int selectedIndex = 0;
   PageController pageController = PageController();
   void _onItemTapped(int index) {
-    setState(() {
-      selectedIndex = index;
-      pageController.animateToPage(index,
-          duration: const Duration(milliseconds: 500), curve: Curves.ease);
-    });
+    setState(
+      () {
+        selectedIndex = index;
+        pageController.animateToPage(index,
+            duration: const Duration(milliseconds: 500), curve: Curves.ease);
+      },
+    );
   }
 
   @override
@@ -40,7 +42,7 @@ class _BasePageState extends State<BasePage> {
         },
         children: const [
           HomePage(),
-          NotifPage(),
+          NotificationsPage(),
           FavoritesPage(),
           ProfilePage(),
         ],

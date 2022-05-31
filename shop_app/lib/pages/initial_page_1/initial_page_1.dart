@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shop_app/pages/initial_page_2.dart';
+import 'package:shop_app/pages/initial_page_2/initial_page_2.dart';
 
 class InitialPage1 extends StatelessWidget {
   InitialPage1({Key? key}) : super(key: key);
@@ -53,27 +53,29 @@ class InitialPage1 extends StatelessWidget {
         decoration: const BoxDecoration(
             image: DecorationImage(
                 image: AssetImage("assets/hat.jpg"), fit: BoxFit.fill)),
-        child: Column(children: [
-          Container(
-            margin: const EdgeInsets.fromLTRB(30, 200, 30, 200),
-            child: Row(
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    heading,
-                    const SizedBox(
-                      height: 50,
-                    ),
-                    subheading1,
-                    subheading2
-                  ],
-                )
-              ],
+        child: Column(
+          children: [
+            Container(
+              margin: const EdgeInsets.fromLTRB(30, 200, 30, 200),
+              child: Row(
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      heading,
+                      const SizedBox(
+                        height: 50,
+                      ),
+                      subheading1,
+                      subheading2
+                    ],
+                  )
+                ],
+              ),
             ),
-          ),
-          specButton(context)
-        ]),
+            specButton(context),
+          ],
+        ),
       ),
     );
   }
@@ -100,11 +102,16 @@ class InitialPage1 extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
         ),
         style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all(Colors.white),
-            padding: MaterialStateProperty.all(
-                const EdgeInsets.symmetric(horizontal: 60)),
-            shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(18.0)))),
+          backgroundColor: MaterialStateProperty.all(Colors.white),
+          padding: MaterialStateProperty.all(
+            const EdgeInsets.symmetric(horizontal: 60),
+          ),
+          shape: MaterialStateProperty.all(
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(18.0),
+            ),
+          ),
+        ),
       ),
     );
   }

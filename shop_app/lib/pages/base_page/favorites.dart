@@ -14,18 +14,22 @@ class _FavoritesPageState extends State<FavoritesPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Container(
-            margin: const EdgeInsets.fromLTRB(30, 20, 30, 0),
-            child: Column(children: [
-              const MainHeader(title: "Favourites", icons: true),
+      body: Container(
+        margin: const EdgeInsets.fromLTRB(30, 20, 30, 0),
+        child: Column(
+          children: [
+            const MainHeader(title: "Favourites", icons: true),
 
-              //LISTVIEW
-              ListView.builder(
-                  itemCount: 3,
-                  shrinkWrap: true,
-                  itemBuilder: (context, index) {
-                    return const FavItem();
-                  })
-            ])));
+            //LISTVIEW
+            ListView.builder(
+                itemCount: 3,
+                shrinkWrap: true,
+                itemBuilder: (context, index) {
+                  return const FavItem();
+                })
+          ],
+        ),
+      ),
+    );
   }
 }

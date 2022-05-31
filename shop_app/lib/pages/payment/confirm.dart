@@ -1,6 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:shop_app/pages/base_page.dart';
+import 'package:shop_app/pages/base_page/base_page.dart';
 
 class ConfirmPage extends StatefulWidget {
   const ConfirmPage({Key? key}) : super(key: key);
@@ -49,29 +49,36 @@ class _ConfirmPageState extends State<ConfirmPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
               ),
               style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.black),
-                  padding: MaterialStateProperty.all(
-                      const EdgeInsets.symmetric(vertical: 12)),
-                  shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(25.0)))),
+                backgroundColor: MaterialStateProperty.all(Colors.black),
+                padding: MaterialStateProperty.all(
+                    const EdgeInsets.symmetric(vertical: 12)),
+                shape: MaterialStateProperty.all(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(25.0),
+                  ),
+                ),
+              ),
             ),
           ),
           const SizedBox(
             height: 20,
           ),
           RichText(
-              text: TextSpan(
-                  recognizer: TapGestureRecognizer()
-                    ..onTap = (() {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const BasePage()));
-                    }),
-                  style: const TextStyle(
-                      color: Color.fromARGB(255, 33, 44, 243),
-                      fontWeight: FontWeight.bold),
-                  text: "Back To Home"))
+            text: TextSpan(
+                recognizer: TapGestureRecognizer()
+                  ..onTap = (() {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const BasePage(),
+                      ),
+                    );
+                  }),
+                style: const TextStyle(
+                    color: Color.fromARGB(255, 33, 44, 243),
+                    fontWeight: FontWeight.bold),
+                text: "Back To Home"),
+          )
         ],
       ),
     );

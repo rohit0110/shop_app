@@ -21,8 +21,10 @@ class _ProfileCardState extends State<ProfileCard> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(widget.title,
-              style: const TextStyle(fontWeight: FontWeight.bold)),
+          Text(
+            widget.title,
+            style: const TextStyle(fontWeight: FontWeight.bold),
+          ),
           Row(
             children: [
               if (widget.order)

@@ -1,25 +1,28 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:shop_app/pages/components/ext_button.dart';
-import 'package:shop_app/pages/signin_page.dart';
-import 'package:shop_app/pages/signup_page.dart';
+import 'package:shop_app/pages/sign_in/signin_page.dart';
+import 'package:shop_app/pages/sign_up/signup_page.dart';
 
 class InitialPage2 extends StatelessWidget {
   InitialPage2({Key? key}) : super(key: key);
   final heading = RichText(
-      text: const TextSpan(
-          style: TextStyle(fontSize: 40, color: Colors.white),
-          children: [
+    text: const TextSpan(
+      style: TextStyle(fontSize: 40, color: Colors.white),
+      children: [
         TextSpan(text: 'Style'),
         TextSpan(text: "ON", style: TextStyle(fontWeight: FontWeight.bold))
-      ]));
+      ],
+    ),
+  );
 
   final subheading1 = RichText(
       text: const TextSpan(
-          style: TextStyle(fontSize: 20, color: Colors.white),
-          children: [
-        TextSpan(text: '  Sign up now'),
-      ]));
+    style: TextStyle(fontSize: 20, color: Colors.white),
+    children: [
+      TextSpan(text: '  Sign up now'),
+    ],
+  ));
 
   final subheading2 = RichText(
       text: const TextSpan(
@@ -64,16 +67,17 @@ class InitialPage2 extends StatelessWidget {
                 image: AssetImage("assets/sit.jpg"), fit: BoxFit.fill)),
         child: BackdropFilter(
           filter: ImageFilter.blur(sigmaX: 2, sigmaY: 2),
-          child: Column(children: [
-            Container(
-              margin: const EdgeInsets.fromLTRB(30, 20, 30, 0),
-              child: Column(
-                children: [
-                  //HEADER
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      TextButton(
+          child: Column(
+            children: [
+              Container(
+                margin: const EdgeInsets.fromLTRB(30, 20, 30, 0),
+                child: Column(
+                  children: [
+                    //HEADER
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        TextButton(
                           onPressed: () {
                             Navigator.of(context)
                                 .push(_createRoute(SignUpPage()));
@@ -92,50 +96,52 @@ class InitialPage2 extends StatelessWidget {
                                 color: Colors.white,
                               )
                             ],
-                          ))
-                    ],
-                  ),
+                          ),
+                        )
+                      ],
+                    ),
 
-                  const SizedBox(height: 150),
-                  Row(
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          heading,
-                          subheading1,
-                          subheading2,
-                          subheading3
-                        ],
-                      )
-                    ],
-                  ),
-                  const SizedBox(height: 10),
-                  const ExtButton(
-                      route: SignInPage(),
-                      title: "Sign In",
-                      titleColor: Colors.black,
-                      bgColor: Colors.white,
-                      hasIcon: false,
-                      whichIcon: Icons.abc),
-                  ExtButton(
-                      route: SignUpPage(),
-                      title: "Sign Up With Email",
-                      titleColor: Colors.black,
-                      bgColor: Colors.white,
-                      hasIcon: true,
-                      whichIcon: Icons.mail),
-                  const ExtButton(
-                      route: SignInPage(),
-                      title: "f  Log In with facebook",
-                      titleColor: Colors.white,
-                      bgColor: Color.fromARGB(255, 9, 6, 169),
-                      hasIcon: false,
-                      whichIcon: Icons.abc),
-                ],
+                    const SizedBox(height: 150),
+                    Row(
+                      children: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            heading,
+                            subheading1,
+                            subheading2,
+                            subheading3
+                          ],
+                        )
+                      ],
+                    ),
+                    const SizedBox(height: 10),
+                    const ExtButton(
+                        route: SignInPage(),
+                        title: "Sign In",
+                        titleColor: Colors.black,
+                        bgColor: Colors.white,
+                        hasIcon: false,
+                        whichIcon: Icons.abc),
+                    ExtButton(
+                        route: SignUpPage(),
+                        title: "Sign Up With Email",
+                        titleColor: Colors.black,
+                        bgColor: Colors.white,
+                        hasIcon: true,
+                        whichIcon: Icons.mail),
+                    const ExtButton(
+                        route: SignInPage(),
+                        title: "f  Log In with facebook",
+                        titleColor: Colors.white,
+                        bgColor: Color.fromARGB(255, 9, 6, 169),
+                        hasIcon: false,
+                        whichIcon: Icons.abc),
+                  ],
+                ),
               ),
-            ),
-          ]),
+            ],
+          ),
         ),
       ),
     );

@@ -3,7 +3,7 @@ import 'package:shop_app/pages/components/header.dart';
 import 'package:shop_app/pages/components/int_button.dart';
 import 'package:shop_app/pages/components/profile_card.dart';
 import 'package:shop_app/pages/components/profile_deets.dart';
-import 'package:shop_app/pages/signin_page.dart';
+import 'package:shop_app/pages/sign_in/signin_page.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -17,8 +17,9 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        margin: const EdgeInsets.fromLTRB(30, 20, 30, 0),
-        child: Column(children: const [
+      margin: const EdgeInsets.fromLTRB(30, 20, 30, 0),
+      child: Column(
+        children: const [
           MainHeader(title: "My Account", icons: false),
           SizedBox(
             height: 20,
@@ -47,6 +48,8 @@ class _ProfilePageState extends State<ProfilePage> {
               hasPost: false,
             ),
           ),
-        ]));
+        ],
+      ),
+    );
   }
 }

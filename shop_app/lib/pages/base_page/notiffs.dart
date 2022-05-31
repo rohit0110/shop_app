@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:shop_app/pages/components/header.dart';
 
-class NotifPage extends StatefulWidget {
-  const NotifPage({Key? key}) : super(key: key);
+class NotificationsPage extends StatefulWidget {
+  const NotificationsPage({Key? key}) : super(key: key);
 
   @override
-  State<NotifPage> createState() => _NotifPageState();
+  State<NotificationsPage> createState() => _NotificationsPageState();
 }
 
 //needs staggered grid, ad area, header,footer
-class _NotifPageState extends State<NotifPage> {
+class _NotificationsPageState extends State<NotificationsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

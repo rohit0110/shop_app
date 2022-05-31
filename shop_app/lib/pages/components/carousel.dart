@@ -19,17 +19,20 @@ class _CarouselState extends State<Carousel> {
   @override
   Widget build(BuildContext context) {
     final List<Widget> imageSliders = imgList
-        .map((item) => Container(
-              margin: const EdgeInsets.all(5.0),
-              //width: 400,
-              //child: Image(image: AssetImage(item)),
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  image: DecorationImage(
-                    fit: BoxFit.fill,
-                    image: AssetImage(item),
-                  )),
-            ))
+        .map(
+          (item) => Container(
+            margin: const EdgeInsets.all(5.0),
+            //width: 400,
+            //child: Image(image: AssetImage(item)),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              image: DecorationImage(
+                fit: BoxFit.fill,
+                image: AssetImage(item),
+              ),
+            ),
+          ),
+        )
         .toList();
     return CarouselSlider(
       options: CarouselOptions(

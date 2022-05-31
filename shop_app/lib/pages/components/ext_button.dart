@@ -46,7 +46,9 @@ class _ExtButtonState extends State<ExtButton> {
       margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
       child: ElevatedButton(
         onPressed: () {
-          Navigator.of(context).push(_createRoute(widget.route));
+          Navigator.of(context).push(
+            _createRoute(widget.route),
+          );
         },
         child: Row(
           children: [
@@ -68,11 +70,16 @@ class _ExtButtonState extends State<ExtButton> {
           mainAxisAlignment: MainAxisAlignment.center,
         ),
         style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all(widget.bgColor),
-            padding: MaterialStateProperty.all(
-                const EdgeInsets.symmetric(horizontal: 60)),
-            shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(18.0)))),
+          backgroundColor: MaterialStateProperty.all(widget.bgColor),
+          padding: MaterialStateProperty.all(
+            const EdgeInsets.symmetric(horizontal: 60),
+          ),
+          shape: MaterialStateProperty.all(
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(18.0),
+            ),
+          ),
+        ),
       ),
     );
   }

@@ -15,27 +15,29 @@ class _SelectColorState extends State<SelectColor> {
   Widget build(BuildContext context) {
     return Row(
       children: List.generate(
-          colors.length,
-          (index) => InkWell(
-                child: Container(
-                  height: 30,
-                  width: 30,
-                  margin: const EdgeInsets.only(right: 10),
-                  decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      border: Border.all(
-                        color: (index == selectedColor)
-                            ? Colors.red
-                            : Colors.black,
-                      ),
-                      color: colors[index]),
-                ),
-                onTap: () {
-                  setState(() {
-                    selectedColor = index;
-                  });
-                },
-              )),
+        colors.length,
+        (index) => InkWell(
+          child: Container(
+            height: 30,
+            width: 30,
+            margin: const EdgeInsets.only(right: 10),
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              border: Border.all(
+                color: (index == selectedColor) ? Colors.red : Colors.black,
+              ),
+              color: colors[index],
+            ),
+          ),
+          onTap: () {
+            setState(
+              () {
+                selectedColor = index;
+              },
+            );
+          },
+        ),
+      ),
     );
   }
 }

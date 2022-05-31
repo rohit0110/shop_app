@@ -15,14 +15,18 @@ class _NumKeyState extends State<NumKey> {
       decoration: const BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.all(Radius.circular(10))),
-      child: Column(children: [
-        Text(
-          widget.number,
-          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 26),
-        ),
-        Text(widget.alphs,
-            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14))
-      ]),
+      child: Column(
+        children: [
+          Text(
+            widget.number,
+            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 26),
+          ),
+          Text(
+            widget.alphs,
+            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
+          )
+        ],
+      ),
     );
   }
 }

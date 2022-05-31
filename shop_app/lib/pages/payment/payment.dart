@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_credit_card/credit_card_widget.dart';
 import 'package:shop_app/pages/components/header.dart';
 import 'package:shop_app/pages/components/int_button.dart';
-import 'package:shop_app/pages/confirm.dart';
+import 'package:shop_app/pages/payment/confirm.dart';
 
 class PaymentPage extends StatefulWidget {
   const PaymentPage({Key? key}) : super(key: key);
