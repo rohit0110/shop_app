@@ -9,6 +9,7 @@ class CartItem extends StatefulWidget {
 
 class _CartItemState extends State<CartItem> {
   int num = 1;
+  bool isZero = false;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -51,18 +52,29 @@ class _CartItemState extends State<CartItem> {
           Row(
             children: [
               IconButton(
-                  onPressed: () {
-                    setState(() {
-                      num -= 1;
-                    });
-                  },
-                  icon: const Icon(Icons.remove_circle_outline)),
+                onPressed: isZero
+                    ? null
+                    : () {
+                        setState(
+                          () {
+                            num -= 1;
+                            if (num == 0) {
+                              isZero = true;
+                            }
+                          },
+                        );
+                      },
+                icon: const Icon(Icons.remove_circle_outline),
+              ),
               Text('$num'),
               IconButton(
                   onPressed: () {
                     setState(
                       () {
                         num += 1;
+                        if (isZero) {
+                          isZero = false;
+                        }
                       },
                     );
                   },

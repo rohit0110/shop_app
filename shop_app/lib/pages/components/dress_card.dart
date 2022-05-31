@@ -2,14 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:shop_app/pages/preview/preview.dart';
 
 class DressCard extends StatefulWidget {
-  const DressCard({Key? key}) : super(key: key);
-
+  const DressCard({Key? key, required this.index}) : super(key: key);
+  final int index;
   @override
   State<DressCard> createState() => _DressCardState();
 }
 
 //,primary image,colors,icon,liked
 class _DressCardState extends State<DressCard> {
+  final List<String> images = [
+    "assets/hat.jpg",
+    "assets/red_hat.jpg",
+    "assets/blue_bg.jpg",
+  ];
   Color likedColor = Colors.grey;
   @override
   Widget build(BuildContext context) {
@@ -24,8 +29,8 @@ class _DressCardState extends State<DressCard> {
       },
       child: Container(
         margin: const EdgeInsets.symmetric(vertical: 3, horizontal: 3),
-        decoration: const BoxDecoration(
-          boxShadow: [
+        decoration: BoxDecoration(
+          boxShadow: const [
             BoxShadow(
               color: Colors.grey,
               blurRadius: 3,
@@ -35,7 +40,7 @@ class _DressCardState extends State<DressCard> {
           ],
           image: DecorationImage(
             fit: BoxFit.fill,
-            image: AssetImage("assets/blue_bg.jpg"),
+            image: AssetImage(images[widget.index % 3]),
           ),
         ),
         child: Column(

@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:shop_app/pages/components/dress_card.dart';
@@ -83,19 +85,35 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 
   Widget stagGrid() {
     return Expanded(
-      child: Container(
-        margin: const EdgeInsets.fromLTRB(30, 5, 30, 0),
-        child: StaggeredGridView.countBuilder(
-          shrinkWrap: true,
-          crossAxisCount: 2,
-          itemCount: 10,
-          itemBuilder: (context, index) {
-            return const DressCard();
-          },
-          staggeredTileBuilder: (index) {
-            return StaggeredTile.count(1, index.isEven ? 1.2 : 1.8);
-          },
-        ),
+      child: Stack(
+        alignment: Alignment.bottomCenter,
+        children: [
+          Container(
+            margin: const EdgeInsets.fromLTRB(30, 5, 30, 0),
+            child: StaggeredGridView.countBuilder(
+              shrinkWrap: true,
+              crossAxisCount: 2,
+              itemCount: 10,
+              itemBuilder: (context, index) {
+                return DressCard(index: index);
+              },
+              staggeredTileBuilder: (index) {
+                return const StaggeredTile.count(1, 1.8);
+              },
+            ),
+          ),
+          Container(
+            height: 30,
+            margin: const EdgeInsets.fromLTRB(30, 0, 30, 0),
+            width: MediaQuery.of(context).size.width,
+            child: ClipRect(
+              child: BackdropFilter(
+                filter: ImageFilter.blur(sigmaX: 2, sigmaY: 2),
+                child: Container(color: Colors.white.withOpacity(0.1)),
+              ),
+            ),
+          )
+        ],
       ),
     );
   }

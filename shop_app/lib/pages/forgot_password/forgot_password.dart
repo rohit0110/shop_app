@@ -3,7 +3,8 @@ import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:shop_app/pages/base_page/base_page.dart';
 import 'package:shop_app/pages/components/header.dart';
 import 'package:shop_app/pages/components/int_button.dart';
-import 'package:shop_app/pages/components/num_keyboard.dart';
+
+import '../components/num_keyboard.dart';
 
 class ForgotPWPage extends StatefulWidget {
   const ForgotPWPage({Key? key}) : super(key: key);
