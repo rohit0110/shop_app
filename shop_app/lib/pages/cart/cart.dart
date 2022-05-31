@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:shop_app/pages/components/cart_item.dart';
+import 'package:shop_app/pages/cart/cart_item.dart';
 import 'package:shop_app/pages/components/header.dart';
 import 'package:shop_app/pages/components/int_button.dart';
-import 'package:shop_app/pages/components/paid.dart';
+import 'package:shop_app/pages/cart/paid.dart';
 import 'package:shop_app/pages/shipping/shipping.dart';
 
 class CartPage extends StatefulWidget {

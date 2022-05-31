@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:shop_app/pages/components/dress_card.dart';
+import 'package:shop_app/pages/base_page/dress_card.dart';
 import 'package:shop_app/pages/components/header.dart';
 
 class HomePage extends StatefulWidget {

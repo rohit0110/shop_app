@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:shop_app/pages/components/header.dart';
 import 'package:shop_app/pages/components/int_button.dart';
-import 'package:shop_app/pages/components/profile_card.dart';
-import 'package:shop_app/pages/components/profile_deets.dart';
+import 'package:shop_app/pages/base_page/profile_card.dart';
+import 'package:shop_app/pages/base_page/profile_deets.dart';
 import 'package:shop_app/pages/sign_in/signin_page.dart';
 
 class ProfilePage extends StatefulWidget {

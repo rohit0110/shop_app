@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:shop_app/pages/cart/cart.dart';
-import 'package:shop_app/pages/components/carousel.dart';
+import 'package:shop_app/pages/preview/carousel.dart';
 import 'package:shop_app/pages/components/header.dart';
 import 'package:shop_app/pages/components/int_button.dart';
-import 'package:shop_app/pages/components/select_color.dart';
-import 'package:shop_app/pages/components/select_size.dart';
+import 'package:shop_app/pages/preview/select_color.dart';
+import 'package:shop_app/pages/preview/select_size.dart';
 
 class PreviewPage extends StatefulWidget {
   const PreviewPage({Key? key}) : super(key: key);
