@@ -17,6 +17,7 @@ class _SelectSizeState extends State<SelectSize> {
       children: List.generate(
         sizes.length,
         (index) => InkWell(
+          splashColor: Colors.transparent,
           child: Container(
             padding: const EdgeInsets.all(8),
             margin: const EdgeInsets.only(right: 10),

@@ -17,6 +17,7 @@ class _SelectColorState extends State<SelectColor> {
       children: List.generate(
         colors.length,
         (index) => InkWell(
+          splashColor: Colors.transparent,
           child: Container(
             height: 30,
             width: 30,
