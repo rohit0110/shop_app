@@ -86,7 +86,6 @@ class _PreviewPageState extends State<PreviewPage> {
           )
         ],
       ),
-      bottomNavigationBar: const BotNavBar(),
     );
   }
 }

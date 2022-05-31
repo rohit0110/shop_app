@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
+import 'package:shop_app/pages/base_page/base_page.dart';
 import 'package:shop_app/pages/components/header.dart';
 import 'package:shop_app/pages/components/int_button.dart';
 import 'package:shop_app/pages/components/num_keyboard.dart';
-import 'package:shop_app/pages/base_page/homepage.dart';
 
 class ForgotPWPage extends StatefulWidget {
   const ForgotPWPage({Key? key}) : super(key: key);
@@ -97,7 +97,7 @@ class _OTPageState extends State<ForgotPWPage> {
                         padding: EdgeInsets.only(top: 30),
                         child: IntButton(
                           title: "Send",
-                          route: HomePage(),
+                          route: BasePage(), //LEADING TO BASE PAGE FOR NOW
                           prefix: Icons.lock,
                           postfix: Icons.abc,
                           hasPre: false,
