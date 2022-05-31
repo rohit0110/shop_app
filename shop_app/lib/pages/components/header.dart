@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shop_app/pages/base_page/base_page.dart';
 
 class MainHeader extends StatefulWidget {
   const MainHeader({Key? key, required this.title, required this.icons})
@@ -19,6 +20,15 @@ class _MainHeaderState extends State<MainHeader> {
             onPressed: () {
               if (widget.title == "Home") {
                 Scaffold.of(context).openDrawer();
+              } else if (widget.title == "Notifications" ||
+                  widget.title == "Favourites" ||
+                  widget.title == "My Account") {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const BasePage(),
+                  ),
+                );
               } else {
                 Navigator.pop(context);
               }
