@@ -13,36 +13,6 @@ class ForgotPWPage extends StatefulWidget {
 }
 
 class _OTPageState extends State<ForgotPWPage> {
-  final heading = RichText(
-      text: const TextSpan(
-          style: TextStyle(fontSize: 40, color: Colors.black),
-          children: [
-        TextSpan(text: 'Style'),
-        TextSpan(text: "ON", style: TextStyle(fontWeight: FontWeight.bold))
-      ]));
-
-  final subheading1 = RichText(
-      text: const TextSpan(
-          style: TextStyle(
-              fontSize: 30, color: Colors.black, fontWeight: FontWeight.bold),
-          children: [
-        TextSpan(text: 'Forget Password?'),
-      ]));
-
-  final subheading3 = RichText(
-      text: const TextSpan(
-          style: TextStyle(fontSize: 10, color: Colors.black),
-          children: [
-        TextSpan(text: 'If you forgot your account password phone'),
-      ]));
-
-  final subheading4 = RichText(
-      text: const TextSpan(
-          style: TextStyle(fontSize: 10, color: Colors.black),
-          children: [
-        TextSpan(text: 'enter your registered number'),
-      ]));
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -64,10 +34,51 @@ class _OTPageState extends State<ForgotPWPage> {
                         children: [
                           Column(
                             children: [
-                              heading,
-                              subheading1,
-                              subheading3,
-                              subheading4
+                              RichText(
+                                text: const TextSpan(
+                                  style: TextStyle(
+                                      fontSize: 40, color: Colors.black),
+                                  children: [
+                                    TextSpan(text: 'Style'),
+                                    TextSpan(
+                                        text: "ON",
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold))
+                                  ],
+                                ),
+                              ),
+                              RichText(
+                                text: const TextSpan(
+                                  style: TextStyle(
+                                      fontSize: 30,
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold),
+                                  children: [
+                                    TextSpan(text: 'Forget Password?'),
+                                  ],
+                                ),
+                              ),
+                              RichText(
+                                text: const TextSpan(
+                                  style: TextStyle(
+                                      fontSize: 10, color: Colors.black),
+                                  children: [
+                                    TextSpan(
+                                        text:
+                                            'If you forgot your account password phone'),
+                                  ],
+                                ),
+                              ),
+                              RichText(
+                                text: const TextSpan(
+                                  style: TextStyle(
+                                      fontSize: 10, color: Colors.black),
+                                  children: [
+                                    TextSpan(
+                                        text: 'enter your registered number'),
+                                  ],
+                                ),
+                              ),
                             ],
                             crossAxisAlignment: CrossAxisAlignment.start,
                           ),

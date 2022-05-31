@@ -2,32 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:shop_app/pages/initial_page_2/initial_page_2.dart';
 
 class InitialPage1 extends StatelessWidget {
-  InitialPage1({Key? key}) : super(key: key);
-  final heading = RichText(
-      text: const TextSpan(
-          style: TextStyle(fontSize: 40, color: Colors.white),
-          children: [
-        TextSpan(text: 'Style'),
-        TextSpan(text: "ON", style: TextStyle(fontWeight: FontWeight.bold))
-      ]));
-
-  final subheading1 = RichText(
-      text: const TextSpan(
-          style: TextStyle(fontSize: 32, color: Colors.white),
-          children: [
-        TextSpan(text: 'Explore the new'),
-      ]));
-
-  final subheading2 = RichText(
-      text: const TextSpan(
-          style: TextStyle(fontSize: 32, color: Colors.white),
-          children: [
-        TextSpan(text: 'world of Clothing'),
-      ]));
+  const InitialPage1({Key? key}) : super(key: key);
 
   Route _createRoute() {
     return PageRouteBuilder(
-      pageBuilder: (context, animation, secondaryAnimation) => InitialPage2(),
+      pageBuilder: (context, animation, secondaryAnimation) =>
+          const InitialPage2(),
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
         const begin = Offset(1.0, 0.0);
         const end = Offset.zero;
@@ -63,12 +43,37 @@ class InitialPage1 extends StatelessWidget {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        heading,
+                        RichText(
+                          text: const TextSpan(
+                            style: TextStyle(fontSize: 40, color: Colors.white),
+                            children: [
+                              TextSpan(text: 'Style'),
+                              TextSpan(
+                                text: "ON",
+                                style: TextStyle(fontWeight: FontWeight.bold),
+                              )
+                            ],
+                          ),
+                        ),
                         const SizedBox(
                           height: 50,
                         ),
-                        subheading1,
-                        subheading2
+                        RichText(
+                          text: const TextSpan(
+                            style: TextStyle(fontSize: 32, color: Colors.white),
+                            children: [
+                              TextSpan(text: 'Explore the new'),
+                            ],
+                          ),
+                        ),
+                        RichText(
+                          text: const TextSpan(
+                            style: TextStyle(fontSize: 32, color: Colors.white),
+                            children: [
+                              TextSpan(text: 'world of Clothing'),
+                            ],
+                          ),
+                        ),
                       ],
                     )
                   ],

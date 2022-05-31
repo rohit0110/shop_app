@@ -5,38 +5,7 @@ import 'package:shop_app/pages/sign_in/signin_page.dart';
 import 'package:shop_app/pages/sign_up/signup_page.dart';
 
 class InitialPage2 extends StatelessWidget {
-  InitialPage2({Key? key}) : super(key: key);
-  final heading = RichText(
-    text: const TextSpan(
-      style: TextStyle(fontSize: 40, color: Colors.white),
-      children: [
-        TextSpan(text: 'Style'),
-        TextSpan(text: "ON", style: TextStyle(fontWeight: FontWeight.bold))
-      ],
-    ),
-  );
-
-  final subheading1 = RichText(
-      text: const TextSpan(
-    style: TextStyle(fontSize: 20, color: Colors.white),
-    children: [
-      TextSpan(text: '  Sign up now'),
-    ],
-  ));
-
-  final subheading2 = RichText(
-      text: const TextSpan(
-          style: TextStyle(fontSize: 20, color: Colors.white),
-          children: [
-        TextSpan(text: '  get 30% cashback'),
-      ]));
-
-  final subheading3 = RichText(
-      text: const TextSpan(
-          style: TextStyle(fontSize: 20, color: Colors.white),
-          children: [
-        TextSpan(text: '  on first purchase'),
-      ]));
+  const InitialPage2({Key? key}) : super(key: key);
 
   Route _createRoute(Widget page) {
     return PageRouteBuilder(
@@ -81,7 +50,7 @@ class InitialPage2 extends StatelessWidget {
                           TextButton(
                             onPressed: () {
                               Navigator.of(context)
-                                  .push(_createRoute(SignUpPage()));
+                                  .push(_createRoute(const SignUpPage()));
                             },
                             style: ButtonStyle(
                                 backgroundColor: MaterialStateProperty.all(
@@ -108,10 +77,46 @@ class InitialPage2 extends StatelessWidget {
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              heading,
-                              subheading1,
-                              subheading2,
-                              subheading3
+                              RichText(
+                                text: const TextSpan(
+                                  style: TextStyle(
+                                      fontSize: 40, color: Colors.white),
+                                  children: [
+                                    TextSpan(text: 'Style'),
+                                    TextSpan(
+                                        text: "ON",
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold))
+                                  ],
+                                ),
+                              ),
+                              RichText(
+                                text: const TextSpan(
+                                  style: TextStyle(
+                                      fontSize: 20, color: Colors.white),
+                                  children: [
+                                    TextSpan(text: '  Sign up now'),
+                                  ],
+                                ),
+                              ),
+                              RichText(
+                                text: const TextSpan(
+                                  style: TextStyle(
+                                      fontSize: 20, color: Colors.white),
+                                  children: [
+                                    TextSpan(text: '  get 30% cashback'),
+                                  ],
+                                ),
+                              ),
+                              RichText(
+                                text: const TextSpan(
+                                  style: TextStyle(
+                                      fontSize: 20, color: Colors.white),
+                                  children: [
+                                    TextSpan(text: '  on first purchase'),
+                                  ],
+                                ),
+                              )
                             ],
                           )
                         ],
@@ -124,7 +129,7 @@ class InitialPage2 extends StatelessWidget {
                           bgColor: Colors.white,
                           hasIcon: false,
                           whichIcon: Icons.abc),
-                      ExtButton(
+                      const ExtButton(
                           route: SignUpPage(),
                           title: "Sign Up With Email",
                           titleColor: Colors.black,

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:shop_app/pages/cart/cart.dart';
-import 'package:shop_app/pages/components/bot_nav.dart';
 import 'package:shop_app/pages/components/carousel.dart';
 import 'package:shop_app/pages/components/header.dart';
 import 'package:shop_app/pages/components/int_button.dart';

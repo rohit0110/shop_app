@@ -6,28 +6,7 @@ import 'package:shop_app/pages/otp_page/otp_page.dart';
 import 'package:shop_app/pages/sign_in/signin_page.dart';
 
 class SignUpPage extends StatelessWidget {
-  SignUpPage({Key? key}) : super(key: key);
-  final heading = RichText(
-    text: const TextSpan(
-      style: TextStyle(fontSize: 40, color: Colors.white),
-      children: [
-        TextSpan(text: 'Style'),
-        TextSpan(
-          text: "ON",
-          style: TextStyle(fontWeight: FontWeight.bold),
-        )
-      ],
-    ),
-  );
-
-  final subheading1 = RichText(
-    text: const TextSpan(
-      style: TextStyle(fontSize: 30, color: Colors.white),
-      children: [
-        TextSpan(text: 'Create Account'),
-      ],
-    ),
-  );
+  const SignUpPage({Key? key}) : super(key: key);
 
   Route _createRoute(Widget page) {
     return PageRouteBuilder(
@@ -75,11 +54,32 @@ class SignUpPage extends StatelessWidget {
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              heading,
+                              RichText(
+                                text: const TextSpan(
+                                  style: TextStyle(
+                                      fontSize: 40, color: Colors.white),
+                                  children: [
+                                    TextSpan(text: 'Style'),
+                                    TextSpan(
+                                      text: "ON",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold),
+                                    )
+                                  ],
+                                ),
+                              ),
                               const SizedBox(
                                 height: 20,
                               ),
-                              subheading1
+                              RichText(
+                                text: const TextSpan(
+                                  style: TextStyle(
+                                      fontSize: 30, color: Colors.white),
+                                  children: [
+                                    TextSpan(text: 'Create Account'),
+                                  ],
+                                ),
+                              ),
                             ],
                           ),
                         ],

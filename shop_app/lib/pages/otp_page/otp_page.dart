@@ -11,58 +11,6 @@ class OTPage extends StatefulWidget {
 }
 
 class _OTPageState extends State<OTPage> {
-  final heading = RichText(
-      text: const TextSpan(
-          style: TextStyle(fontSize: 40, color: Colors.black),
-          children: [
-        TextSpan(text: 'Style'),
-        TextSpan(text: "ON", style: TextStyle(fontWeight: FontWeight.bold))
-      ]));
-
-  final subheading1 = RichText(
-      text: const TextSpan(
-          style: TextStyle(
-              fontSize: 30, color: Colors.black, fontWeight: FontWeight.bold),
-          children: [
-        TextSpan(text: 'Enter the code to'),
-      ]));
-
-  final subheading2 = RichText(
-      text: const TextSpan(
-          style: TextStyle(
-              fontSize: 30, color: Colors.black, fontWeight: FontWeight.bold),
-          children: [
-        TextSpan(text: 'verify your account'),
-      ]));
-
-  final subheading3 = RichText(
-      text: const TextSpan(
-          style: TextStyle(
-              fontSize: 14, color: Colors.black, fontWeight: FontWeight.bold),
-          children: [
-        TextSpan(text: 'we have sent you an sms with a code to'),
-      ]));
-
-  final subheading4 = RichText(
-      text: const TextSpan(
-          style: TextStyle(
-              fontSize: 14, color: Colors.black, fontWeight: FontWeight.bold),
-          children: [
-        TextSpan(text: 'the number +22-714552668'),
-      ]));
-
-  final sendagain = RichText(
-      text: const TextSpan(
-          style: TextStyle(fontSize: 14, color: Colors.black),
-          children: [
-        TextSpan(text: 'send new '),
-        TextSpan(
-            text: "code again ?",
-            style: TextStyle(
-                fontWeight: FontWeight.bold,
-                color: Color.fromARGB(255, 33, 44, 243)))
-      ]));
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -74,43 +22,114 @@ class _OTPageState extends State<OTPage> {
               flex: 3,
               child: Container(
                 margin: const EdgeInsets.fromLTRB(30, 0, 30, 0),
-                child: Column(children: [
-                  const MainHeader(title: "", icons: false),
-                  const SizedBox(height: 50),
-                  Row(
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                child: Column(
+                  children: [
+                    const MainHeader(title: "", icons: false),
+                    const SizedBox(height: 50),
+                    Row(
+                      children: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            RichText(
+                              text: const TextSpan(
+                                style: TextStyle(
+                                    fontSize: 40, color: Colors.black),
+                                children: [
+                                  TextSpan(text: 'Style'),
+                                  TextSpan(
+                                    text: "ON",
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold),
+                                  )
+                                ],
+                              ),
+                            ),
+                            const SizedBox(
+                              height: 20,
+                            ),
+                            RichText(
+                              text: const TextSpan(
+                                style: TextStyle(
+                                    fontSize: 30,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold),
+                                children: [
+                                  TextSpan(text: 'Enter the code to'),
+                                ],
+                              ),
+                            ),
+                            RichText(
+                              text: const TextSpan(
+                                style: TextStyle(
+                                    fontSize: 30,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold),
+                                children: [
+                                  TextSpan(text: 'verify your account'),
+                                ],
+                              ),
+                            ),
+                            const SizedBox(
+                              height: 20,
+                            ),
+                            RichText(
+                              text: const TextSpan(
+                                style: TextStyle(
+                                    fontSize: 14,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold),
+                                children: [
+                                  TextSpan(
+                                      text:
+                                          'we have sent you an sms with a code to'),
+                                ],
+                              ),
+                            ),
+                            RichText(
+                              text: const TextSpan(
+                                style: TextStyle(
+                                    fontSize: 14,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold),
+                                children: [
+                                  TextSpan(text: 'the number +22-714552668'),
+                                ],
+                              ),
+                            ),
+                          ],
+                        )
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    OtpTextField(
+                      numberOfFields: 4,
+                      readOnly: true,
+                      showCursor: true,
+                      margin: const EdgeInsets.all(10),
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    RichText(
+                      text: const TextSpan(
+                        style: TextStyle(fontSize: 14, color: Colors.black),
                         children: [
-                          heading,
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          subheading1,
-                          subheading2,
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          subheading3,
-                          subheading4
+                          TextSpan(text: 'send new '),
+                          TextSpan(
+                            text: "code again ?",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Color.fromARGB(255, 33, 44, 243),
+                            ),
+                          )
                         ],
-                      )
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  OtpTextField(
-                    numberOfFields: 4,
-                    readOnly: true,
-                    showCursor: true,
-                    margin: const EdgeInsets.all(10),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  sendagain,
-                ]),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
             const Expanded(flex: 2, child: NumKeyboard()),

@@ -14,21 +14,6 @@ class SignInPage extends StatefulWidget {
 }
 
 class _SignInPageState extends State<SignInPage> {
-  final heading = RichText(
-      text: const TextSpan(
-          style: TextStyle(fontSize: 40, color: Colors.white),
-          children: [
-        TextSpan(text: 'Style'),
-        TextSpan(text: "ON", style: TextStyle(fontWeight: FontWeight.bold))
-      ]));
-
-  final subheading1 = RichText(
-      text: const TextSpan(
-          style: TextStyle(fontSize: 30, color: Colors.white),
-          children: [
-        TextSpan(text: 'Sign In'),
-      ]));
-
   bool isChecked = false;
 
   Route _createRoute(Widget page) {
@@ -85,13 +70,37 @@ class _SignInPageState extends State<SignInPage> {
                       ),
                       const SizedBox(height: 50),
                       Row(
-                        children: [heading],
+                        children: [
+                          RichText(
+                            text: const TextSpan(
+                              style:
+                                  TextStyle(fontSize: 40, color: Colors.white),
+                              children: [
+                                TextSpan(text: 'Style'),
+                                TextSpan(
+                                  text: "ON",
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                )
+                              ],
+                            ),
+                          ),
+                        ],
                       ),
                       const SizedBox(
                         height: 20,
                       ),
                       Row(
-                        children: [subheading1],
+                        children: [
+                          RichText(
+                            text: const TextSpan(
+                              style:
+                                  TextStyle(fontSize: 30, color: Colors.white),
+                              children: [
+                                TextSpan(text: 'Sign In'),
+                              ],
+                            ),
+                          ),
+                        ],
                       ),
                       const SizedBox(height: 20),
                       formField(),
@@ -114,7 +123,7 @@ class _SignInPageState extends State<SignInPage> {
                             recognizer: TapGestureRecognizer()
                               ..onTap = (() {
                                 Navigator.of(context)
-                                    .push(_createRoute(SignUpPage()));
+                                    .push(_createRoute(const SignUpPage()));
                               }),
                             style: const TextStyle(color: Colors.white),
                             text: "Dont Have a account? Create Account"),
