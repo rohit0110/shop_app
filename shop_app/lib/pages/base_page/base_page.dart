@@ -33,6 +33,7 @@ class _BasePageState extends State<BasePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: const Drawer(),
       body: PageView(
         controller: pageController,
         onPageChanged: (index) {

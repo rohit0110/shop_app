@@ -17,7 +17,11 @@ class _MainHeaderState extends State<MainHeader> {
       children: [
         IconButton(
             onPressed: () {
-              Navigator.pop(context);
+              if (widget.title == "Home") {
+                Scaffold.of(context).openDrawer();
+              } else {
+                Navigator.pop(context);
+              }
             },
             icon: Icon(
               (widget.title == "Home") ? Icons.menu : Icons.arrow_back_ios,
